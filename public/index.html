@@ -3,7 +3,7 @@
 <!--[if IE 9]> <html lang="en" class="ie9 no-js"> <![endif]-->
 <!--[if !IE]><!-->
 <html lang="zxx">
-<!--[endif]-->
+  <!--[endif]-->
   <head>
     <meta charset="utf-8" />
     <title>React Redux App</title>
@@ -18,10 +18,10 @@
     <link rel="stylesheet" type="text/css" href="css/fonts.css" />
     <link rel="stylesheet" type="text/css" href="css/flaticon.css" />
     <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
-    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css">
-    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css">
+    <link rel="stylesheet" type="text/css" href="css/owl.carousel.css" />
+    <link rel="stylesheet" type="text/css" href="css/owl.theme.default.css" />
     <link rel="stylesheet" type="text/css" href="css/dropify.min.css" />
-    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css">
+    <link rel="stylesheet" type="text/css" href="css/jquery-ui.min.css" />
     <link rel="stylesheet" type="text/css" href="css/magnific-popup.css" />
     <link rel="stylesheet" type="text/css" href="css/nice-select.css" />
     <link rel="stylesheet" type="text/css" href="css/reset.css" />
@@ -33,5 +33,29 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+
+    <!--custom js files-->
+    <script src="js/jquery-3.3.1.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/modernizr.js"></script>
+    <script src="js/jquery.menu-aim.js"></script>
+    <script src="js/owl.carousel.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.countTo.js"></script>
+    <script src="js/jquery.magnific-popup.js"></script>
+    <script src="js/dropify.min.js"></script>
+    <script src="js/jquery.inview.min.js"></script>
+    <script src="js/jquery.nice-select.min.js"></script>
+    <script src="js/imagesloaded.pkgd.min.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+    <script src="js/custom.js"></script>
+    <script src="js/plugin.js"></script>
+
+    <script>
+      $(document).ready(function () {
+        $.getScript("/js/plugin.js");
+      });
+    </script>
+    <!-- custom js-->
   </body>
 </html>
