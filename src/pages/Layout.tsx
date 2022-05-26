@@ -1,23 +1,14 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
+import Login from "../features/login/Login";
+import { useLocation } from "react-router-dom";
 
 export default function Layout() {
+  const location = useLocation();
+  console.log("pathname", location.pathname);
   return (
     <div>
       {/* A "layout route" is a good place to put markup you want to
             share across all the pages on your site, like navigation. */}
-      {/* <nav>
-        <ul>
-          <li>
-            <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li>
-          <li>
-            <Link to="/nothing-here">Nothing Here</Link>
-          </li>
-        </ul>
-      </nav> */}
 
       {/* preloader Start */}
       <div className="jb_preloader">
@@ -34,12 +25,12 @@ export default function Layout() {
       {/* cp navi wrapper Start */}
       <nav className="cd-dropdown  d-block d-sm-block d-md-block d-lg-none d-xl-none">
         <h2>
-          <a href="index.html">
+          <Link to="/about">
             {" "}
             <span>
               <img src="images/logo.png" alt="img" />
             </span>
-          </a>
+          </Link>
         </h2>
         <a href="#0" className="cd-close">
           Close
@@ -51,10 +42,10 @@ export default function Layout() {
             </form>
           </li>
           <li className="has-children">
-            <a href="/">home</a>
+            <Link to="/about">home</Link>
             <ul className="cd-secondary-dropdown icon_menu is-hidden">
               <li className="go-back">
-                <a href="/">Menu</a>
+                <Link to="/about">Menu</Link>
               </li>
               <li>
                 <a href="index.html">home I</a>
@@ -313,38 +304,9 @@ export default function Layout() {
           </header>
           <div className="menu_btn_box header_btn jb_cover">
             <ul>
+              <li></li>
               <li>
-              </li>
-              <li>
-                <a href="sign_up.html" style={{ width: 220 }}>
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    x="0px"
-                    y="0px"
-                    width={26}
-                    height={26}
-                    viewBox="0 0 48 48"
-                    style={{ fill: "#000000" }}
-                  >
-                    <path
-                      fill="#FFC107"
-                      d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
-                    />
-                    <path
-                      fill="#FF3D00"
-                      d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
-                    />
-                    <path
-                      fill="#4CAF50"
-                      d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
-                    />
-                    <path
-                      fill="#1976D2"
-                      d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
-                    />
-                  </svg>
-                  <i /> sign in / sign up
-                </a>
+                <Login />
               </li>
             </ul>
           </div>
@@ -352,455 +314,49 @@ export default function Layout() {
             <div className="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
               <ul className="main_nav_ul">
                 <li className="has-mega gc_main_navigation">
-                  <a href="/" className="gc_main_navigation active_class">
+                  <Link
+                    to="/"
+                    className={`gc_main_navigation ${
+                      location.pathname.match(/^\/$/g) ? "active_class" : ""
+                    }`}
+                  >
                     home
-                  </a>
-                </li>
-                <li className="has-mega gc_main_navigation">
-                  <a href="#0" className="gc_main_navigation">
-                    jobs
-                  </a>
-                  <ul className="navi_2_dropdown">
-                    <li className="parent">
-                      <a href="job_listing_grid_left_filter.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        job listing grid{" "}
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="job_listing_list_left_filter.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        job listing list{" "}
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="job_single.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        job single
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="#0">
-                        <i className="fas fa-square" />
-                        jobs
-                        <span>
-                          <i className="fas fa-chevron-right" />
-                        </span>
-                      </a>
-                      <ul className="dropdown-menu-right">
-                        <li>
-                          <a href="job_listing_grid_left_filter.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            job listing grid{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="job_listing_list_left_filter.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            job listing list{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="job_single.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            job single
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-mega gc_main_navigation kv_sub_menu">
-                  <a href="#0" className="gc_main_navigation">
-                    {" "}
-                    candidates
-                  </a>
-                  {/* mega menu start */}
-                  <ul className="kv_mega_menu">
-                    <li className="kv_mega_menu_width">
-                      <div className="container">
-                        <div className="jn_menu_partion_div">
-                          <div className="candidate_width">
-                            <div className="jen_tabs_conent_list jb_cover">
-                              <h1>job skills</h1>
-                              <ul>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    HTML5 &amp; CSS3
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    wordpress
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    javascript
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    photoshop
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    designer
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    construction
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="candidate_width">
-                            <div className="jen_tabs_conent_list jb_cover">
-                              <h1>categories</h1>
-                              <ul>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    graphic design
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    engineering jobs
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    mainframe jobs
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    PSU jobs
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    goverment jobs
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    IT company
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="candidate_width">
-                            <div className="jen_tabs_conent_list   jb_cover">
-                              <h1>job location</h1>
-                              <ul>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    india
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    united state
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    japan
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    dubai
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    south africa
-                                  </a>
-                                </li>
-                                <li>
-                                  <a href="#0">
-                                    <i className="fas fa-square" />
-                                    china
-                                  </a>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                          <div className="candidate_width">
-                            <div className="jen_tabs_conent_list   jb_cover">
-                              <h1>open jobs</h1>
-                              <div className="open_jobs_wrapper">
-                                <div className="open_jobs_wrapper_1 jb_cover">
-                                  <img src="images/job1.jpg" alt="img" />
-                                  <div className="open_job_text">
-                                    <h3>
-                                      <a href="#0">
-                                        Some designers inelevated the..
-                                      </a>
-                                    </h3>
-                                    <p>5 hour ago</p>
-                                  </div>
-                                </div>
-                                <div className="open_jobs_wrapper_1 jb_cover">
-                                  <img src="images/job1.jpg" alt="img" />
-                                  <div className="open_job_text">
-                                    <h3>
-                                      <a href="#0">
-                                        Some designers inelevated the..
-                                      </a>
-                                    </h3>
-                                    <p>12 hour ago</p>
-                                  </div>
-                                </div>
-                                <div className="view_all_job jb_cover">
-                                  <a href="#0">view all jobs</a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-mega gc_main_navigation">
-                  <a href="#0" className="gc_main_navigation">
-                    pages
-                  </a>
-                  <ul className="navi_2_dropdown">
-                    <li className="parent">
-                      <a href="about_us.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        about us
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="companies.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        companies
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="company_single.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        company single
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="error_page.html">
-                        <i className="fas fa-square" />
-                        error page
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="login.html">
-                        <i className="fas fa-square" />
-                        login
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="pricing_table.html">
-                        <i className="fas fa-square" />
-                        pricing table
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="sign_up.html">
-                        <i className="fas fa-square" />
-                        sign_up
-                      </a>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-mega gc_main_navigation">
-                  <a href="#0" className="gc_main_navigation">
-                    dashboard
-                  </a>
-                  <ul className="navi_2_dropdown">
-                    <li className="parent">
-                      <a href="#0">
-                        <i className="fas fa-square" />
-                        candidate
-                        <span>
-                          <i className="fas fa-chevron-right" />
-                        </span>
-                      </a>
-                      <ul className="dropdown-menu-right">
-                        <li>
-                          <a href="../dashboard/candidate_applied_job.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            applied job{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/candidate_dashboard.html">
-                            {" "}
-                            <i className="fas fa-square" /> dashboard
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/candidate_edit_profile.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            edit profile
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/candidate_favourite_job.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            favourite job
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/candidate_resume.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            resume
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/message.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            message
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/pricing_plans.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            pricing plans
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                    <li className="parent">
-                      <a href="#0">
-                        <i className="fas fa-square" />
-                        company
-                        <span>
-                          <i className="fas fa-chevron-right" />
-                        </span>
-                      </a>
-                      <ul className="dropdown-menu-right">
-                        <li>
-                          <a href="../dashboard/comp_applications.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            applications{" "}
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/comp_company_page.html">
-                            {" "}
-                            <i className="fas fa-square" /> company page
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/comp_employer_dashboard.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            dashboard
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/comp_employer_edit_profile.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            edit profile
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/comp_employer_manage_jobs.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            manage jobs
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/comp_post_new_job.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            post new job
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/message.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            message
-                          </a>
-                        </li>
-                        <li>
-                          <a href="../dashboard/pricing_plans.html">
-                            {" "}
-                            <i className="fas fa-square" />
-                            pricing plans
-                          </a>
-                        </li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li className="has-mega gc_main_navigation">
-                  <a href="#0" className="gc_main_navigation">
-                    blog
-                  </a>
-                  <ul className="navi_2_dropdown">
-                    <li className="parent">
-                      <a href="blog_single.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        blog single
-                      </a>
-                    </li>
-                    <li className="parent">
-                      <a href="blog_category_right_sidebar.html">
-                        {" "}
-                        <i className="fas fa-square" />
-                        blog category
-                      </a>
-                    </li>
-                  </ul>
+                  </Link>
                 </li>
                 <li>
                   <a href="contact_us.html" className="gc_main_navigation">
-                    contact
+                    news
                   </a>
+                </li>
+                <li>
+                  <a href="contact_us.html" className="gc_main_navigation">
+                    jobs
+                  </a>
+                </li>
+                <li>
+                  <a href="contact_us.html" className="gc_main_navigation">
+                    companies
+                  </a>
+                </li>
+                <li>
+                  <Link
+                    to="/contact"
+                    className={`gc_main_navigation ${
+                      location.pathname.match(/^\/contact/g) ? "active_class" : ""
+                    }`}
+                  >
+                    contact
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    to="/about"
+                    className={`gc_main_navigation ${
+                      location.pathname.match(/^\/about/g) ? "active_class" : ""
+                    }`}
+                  >
+                    about us
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -838,9 +394,7 @@ export default function Layout() {
         </div>
       </div>
 
-
       <Outlet />
-
 
       {/* blog wrapper end*/}
       {/* footer Wrapper Start */}
@@ -1070,7 +624,6 @@ export default function Layout() {
           </form>
         </div>
       </div>
-      
     </div>
   );
 }
