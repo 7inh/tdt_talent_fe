@@ -1,7 +1,6 @@
 export default function About() {
   return (
     <div>
-      <>
         {/* top header wrapper end */}
         {/* work Wrapper Start */}
         <div className="iner_abt_wrapper jb_cover">
@@ -69,7 +68,6 @@ export default function About() {
             </div>
           </div>
         </div>
-      </>
     </div>
   );
 }
