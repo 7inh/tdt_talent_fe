@@ -4,12 +4,12 @@ import { RootState } from "../../app/store";
 
 export interface LoginState {
   user: any;
-  token: string;
+  token: string | null;
 }
 
 const initialState: LoginState = {
   user: {},
-  token: "",
+  token: localStorage.getItem("token"),
 };
 
 export const LoginSlice = createSlice({
@@ -21,6 +21,7 @@ export const LoginSlice = createSlice({
         test: "abc",
       };
       state.token = action.payload.token;
+      state.token && localStorage.setItem("token", state.token);
     },
     removeLogin: (state, action) => {
       state = initialState;
