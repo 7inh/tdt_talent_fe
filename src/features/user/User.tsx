@@ -1,8 +1,12 @@
-import { useDispatch } from "react-redux";
-import { removeLogin } from "../login/loginSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { removeLogin, selectLogin } from "../login/loginSlice";
+import { MdDashboard } from "react-icons/md";
 
 export default function User() {
+  const { user } = useSelector(selectLogin);
   const dispatch = useDispatch();
+
+  console.log(`User`, user);
 
   const logout = () => {
     dispatch(removeLogin());
@@ -25,14 +29,16 @@ export default function User() {
               className="luca_profile_wrapper"
               style={{ lineHeight: "25px" }}
             >
-              <div style={{ fontSize: 16 }}>Luca Wallace</div>
-              <a href="#0">luca@example.com</a>
+              <div style={{ fontSize: 16 }}>{user.name}</div>
+              <a href="#0">{user.email}</a>
             </div>
           </span>
           <ul className="list">
             <li>
               <a href="#0">
-              <i className="fas fa-cog"></i>
+                <i className="fas">
+                  <MdDashboard />
+                </i>
                 dashboard
               </a>
             </li>

@@ -8,7 +8,7 @@ export interface LoginState {
 }
 
 const initialState: LoginState = {
-  user: {},
+  user: JSON.parse(localStorage.getItem("user") || "{}"),
   token: localStorage.getItem("token"),
 };
 
@@ -17,21 +17,25 @@ export const LoginSlice = createSlice({
   initialState,
   reducers: {
     setLogin: (state, action: PayloadAction<any>) => {
-      state.user = {
-        test: "abc",
-      };
-      state.token = action.payload.token;
-      state.token && localStorage.setItem("token", state.token);
+      const token = action.payload.token;
+      state.token = token;
+      token && localStorage.setItem("token", token);
+    },
+    setUser: (state, action: PayloadAction<any>) => {
+      const user = action.payload.user;
+      state.user = user;
+      user && localStorage.setItem("user", JSON.stringify(user));
     },
     removeLogin: (state) => {
       state = initialState;
       localStorage.setItem("token", "");
+      localStorage.setItem("user", "{}");
       window.location.reload();
     },
   },
 });
 
-export const { setLogin, removeLogin } = LoginSlice.actions;
+export const { setLogin, removeLogin, setUser } = LoginSlice.actions;
 
 export const selectLogin = (state: RootState) => state.login;
 

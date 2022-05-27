@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import GoogleIcon from "../../assets/icons/GoogleIcon";
 import loginWithGoogle from "../../utils/loginWithGoogle";
-import { selectLogin, setLogin } from "./loginSlice";
+import loginAPI from "./loginAPI";
+import { selectLogin, setLogin, setUser } from "./loginSlice";
 
 export default function Login() {
   const dispatch = useDispatch();
@@ -10,11 +11,15 @@ export default function Login() {
 
   useEffect(() => {
     console.log("googleToken-----", token);
+
   }, [token]);
 
   const onLogin = async () => {
     const googleToken = await loginWithGoogle();
+    const user = await loginAPI(googleToken);
+
     dispatch(setLogin({ token: googleToken }));
+    dispatch(setUser({ user }));
   };
 
   return (
