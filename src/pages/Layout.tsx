@@ -8,7 +8,7 @@ import { selectLogin } from "../features/login/loginSlice";
 export default function Layout() {
   const { token } = useSelector(selectLogin);
   const location = useLocation();
-  console.log("pathname", location.pathname);
+ 
   return (
     <div>
       {/* A "layout route" is a good place to put markup you want to

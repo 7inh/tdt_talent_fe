@@ -6,8 +6,6 @@ export default function User() {
   const { user } = useSelector(selectLogin);
   const dispatch = useDispatch();
 
-  console.log(`User`, user);
-
   const logout = () => {
     dispatch(removeLogin());
   };
@@ -24,7 +22,7 @@ export default function User() {
               alignItems: "center",
             }}
           >
-            <img src="images/pf.png" alt="img" />
+            <img src={user.picture} alt="img" />
             <div
               className="luca_profile_wrapper"
               style={{ lineHeight: "25px" }}
