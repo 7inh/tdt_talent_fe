@@ -1,4 +1,13 @@
+import { useDispatch } from "react-redux";
+import { removeLogin } from "../login/loginSlice";
+
 export default function User() {
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    dispatch(removeLogin());
+  };
+
   return (
     <div className="menu_btn_box jb_cover">
       <div className="jb_profile_box user-controller img">
@@ -23,17 +32,11 @@ export default function User() {
           <ul className="list">
             <li>
               <a href="#0">
-                <i className="fas fa-user-edit" />
-                account
+              <i className="fas fa-cog"></i>
+                dashboard
               </a>
             </li>
-            <li>
-              <a href="#0">
-                <i className="fas fa-cog" />
-                Setting
-              </a>
-            </li>
-            <li>
+            <li onClick={logout}>
               <a href="#0">
                 <i className="fas fa-sign-in-alt" />
                 logout
