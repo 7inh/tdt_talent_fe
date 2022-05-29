@@ -16,7 +16,7 @@ export default function Job() {
                   <ul className="sub_title">
                     <li>
                       {" "}
-                      <a href="#0"> Home </a>&nbsp; / &nbsp;{" "}
+                      <a href="#"> Home </a>&nbsp; / &nbsp;{" "}
                     </li>
                     <li>job listing</li>
                   </ul>
@@ -54,166 +54,104 @@ export default function Job() {
               <div className="job_filter_category_sidebar jb_cover">
                   
                 <div className="job_filter_sidebar_heading jb_cover">
-                  <h1>jobs by category</h1>
+                  <h1>work experience</h1>
                 </div>
                 <div className="category_jobbox jb_cover">
                   <p className="job_field">
                     <input type="checkbox" id="c1" name="cb" />
                     <label htmlFor="c1">
-                      graphic designer<span> (155)</span>
+                      No Experience
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c2" name="cb" />
                     <label htmlFor="c2">
-                      Engineering Jobs <span> (514)</span>
+                      0-2 years 
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c3" name="cb" />
                     <label htmlFor="c3">
-                      Mainframe Jobs <span> (554)</span>
+                      3-5 years
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c4" name="cb" />
                     <label htmlFor="c4">
-                      Legal Jobs <span> (457)</span>
+                      more than 6 years 
                     </label>
                   </p>
-                  <p className="job_field">
-                    <input type="checkbox" id="c5" name="cb" />
-                    <label htmlFor="c5">
-                      IT Jobs <span> (254)</span>{" "}
-                    </label>
-                  </p>
-                  <p className="job_field">
-                    <input type="checkbox" id="c6" name="cb" />
-                    <label htmlFor="c6">
-                      PSU Jobs <span> (1054)</span>{" "}
-                    </label>
-                  </p>
-                  <p className="job_field">
-                    <input type="checkbox" id="c7" name="cb" />
-                    <label htmlFor="c7">
-                      government Jobs <span> (1284)</span>{" "}
-                    </label>
-                  </p>
-                  <div className="seeMore">
-                    <a href="#0">view all categories</a>
-                  </div>
                 </div>
               </div>
               <div className="job_filter_category_sidebar jb_cover">
                 <div className="job_filter_sidebar_heading jb_cover">
-                  <h1>jobs by location</h1>
+                  <h1>type of employment</h1>
                 </div>
                 <div className="category_jobbox jb_cover">
                   <p className="job_field">
-                    <input type="checkbox" id="c01" name="cb" />
-                    <label htmlFor="c01">
-                      Jobs in delhi
-                      <span> (24)</span>
-                    </label>
-                  </p>
-                  <p className="job_field">
                     <input type="checkbox" id="c02" name="cb" />
                     <label htmlFor="c02">
-                      Jobs in mumbai
-                      <span> (1242)</span>
+                      full-time
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c03" name="cb" />
                     <label htmlFor="c03">
-                      Jobs in chennai
-                      <span>(458)</span>
+                      part-time
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c04" name="cb" />
                     <label htmlFor="c04">
-                      Jobs in indore
-                      <span> (1047)</span>
+                      intern ship
                     </label>
                   </p>
-                  <p className="job_field">
-                    <input type="checkbox" id="c05" name="cb" />
-                    <label htmlFor="c05">
-                      Job in bhopal <span> (124)</span>{" "}
-                    </label>
-                  </p>
-                  <p className="job_field">
-                    <input type="checkbox" id="c06" name="cb" />
-                    <label htmlFor="c06">
-                      Job in pune <span> (124)</span>{" "}
-                    </label>
-                  </p>
-                  <p className="job_field">
-                    <input type="checkbox" id="c07" name="cb" />
-                    <label htmlFor="c07">
-                      Job in banglore <span> (124)</span>{" "}
-                    </label>
-                  </p>
-                  <div className="seeMore">
-                    <a href="#0">view all categories</a>
-                  </div>
+                  
                 </div>
               </div>
               <div className="job_filter_category_sidebar jb_cover">
                 <div className="job_filter_sidebar_heading jb_cover">
-                  <h1>your skill's</h1>
+                  <h1>Date Posted</h1>
                 </div>
                 <div className="category_jobbox jb_cover">
                   <p className="job_field">
                     <input type="checkbox" id="c11" name="cb" />
                     <label htmlFor="c11">
-                      javascript
-                      <span> (124)</span>
+                      all
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c12" name="cb" />
                     <label htmlFor="c12">
-                      HTML5
-                      <span> (42)</span>
+                      last hours
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c13" name="cb" />
                     <label htmlFor="c13">
-                      CSS
-                      <span>(158)</span>
+                      last 24 hours
+              
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c14" name="cb" />
                     <label htmlFor="c14">
-                      marketing
-                      <span> (47)</span>
+                      last 7 days
+                
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c15" name="cb" />
                     <label htmlFor="c15">
-                      web design <span> (124)</span>{" "}
+                      last 14 days
                     </label>
                   </p>
                   <p className="job_field">
                     <input type="checkbox" id="c16" name="cb" />
                     <label htmlFor="c16">
-                      PHP<span> (124)</span>{" "}
+                      last 30 days
                     </label>
                   </p>
-                  <p className="job_field">
-                    <input type="checkbox" id="c17" name="cb" />
-                    <label htmlFor="c17">
-                      social media<span> (124)</span>{" "}
-                    </label>
-                  </p>
-                  <div className="seeMore">
-                    <a href="#0">view all categories</a>
-                  </div>
                 </div>
               </div>
             </div>
@@ -263,7 +201,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -295,7 +233,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal01"
                                     >
@@ -366,7 +304,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -388,7 +326,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -420,7 +358,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal02"
                                     >
@@ -491,7 +429,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -513,7 +451,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -545,7 +483,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal09"
                                     >
@@ -616,7 +554,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -638,7 +576,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -670,7 +608,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal03"
                                     >
@@ -741,7 +679,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -763,7 +701,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -795,7 +733,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal05"
                                     >
@@ -866,7 +804,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -888,7 +826,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -920,7 +858,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal04"
                                     >
@@ -991,7 +929,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1013,7 +951,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -1045,7 +983,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal051"
                                     >
@@ -1116,7 +1054,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1138,7 +1076,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -1170,7 +1108,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal06"
                                     >
@@ -1241,7 +1179,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1263,7 +1201,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -1295,7 +1233,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal07"
                                     >
@@ -1366,7 +1304,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1388,7 +1326,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -1420,7 +1358,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal061"
                                     >
@@ -1491,7 +1429,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1513,7 +1451,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -1545,7 +1483,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal011"
                                     >
@@ -1616,7 +1554,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1638,7 +1576,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -1670,7 +1608,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal08"
                                     >
@@ -1741,7 +1679,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1767,7 +1705,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -1799,7 +1737,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal1"
                                     >
@@ -1870,7 +1808,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -1892,7 +1830,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -1924,7 +1862,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal2"
                                     >
@@ -1995,7 +1933,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -2017,7 +1955,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -2049,7 +1987,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal3"
                                     >
@@ -2120,7 +2058,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -2142,7 +2080,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -2174,7 +2112,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal8"
                                     >
@@ -2245,7 +2183,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -2267,7 +2205,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Power Systems Experience Designer{" "}
                                   </a>
                                 </h4>
@@ -2299,7 +2237,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal4"
                                     >
@@ -2370,7 +2308,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -2392,7 +2330,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -2424,7 +2362,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal5"
                                     >
@@ -2495,7 +2433,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -2517,7 +2455,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -2549,7 +2487,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal6"
                                     >
@@ -2620,7 +2558,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -2642,7 +2580,7 @@ export default function Job() {
                               </div>
                               <div className="jp_job_post_right_cont">
                                 <h4>
-                                  <a href="#0">
+                                  <a href="#">
                                     Trainee Web Designer, (Fresher)
                                   </a>
                                 </h4>
@@ -2674,7 +2612,7 @@ export default function Job() {
                                   <li>
                                     {" "}
                                     <a
-                                      href="#0"
+                                      href="#"
                                       data-toggle="modal"
                                       data-target="#myModal7"
                                     >
@@ -2745,7 +2683,7 @@ export default function Job() {
                                             </div>
                                           </div>
                                           <div className="header_btn search_btn applt_pop_btn jb_cover">
-                                            <a href="#0">apply now</a>
+                                            <a href="#">apply now</a>
                                           </div>
                                         </div>
                                       </div>
@@ -2762,28 +2700,28 @@ export default function Job() {
                   <div className="blog_pagination_section jb_cover">
                     <ul>
                       <li>
-                        <a href="#0" className="prev">
+                        <a href="#" className="prev">
                           {" "}
                           <i className="flaticon-left-arrow" />{" "}
                         </a>
                       </li>
                       <li>
-                        <a href="#0">1</a>
+                        <a href="#">1</a>
                       </li>
                       <li className="third_pagger">
-                        <a href="#0">2</a>
+                        <a href="#">2</a>
                       </li>
                       <li className="d-block d-sm-block d-md-block d-lg-block">
-                        <a href="#0">3</a>
+                        <a href="#">3</a>
                       </li>
                       <li className="d-none d-sm-block d-md-block d-lg-block">
-                        <a href="#0">...</a>
+                        <a href="#">...</a>
                       </li>
                       <li className="d-none d-sm-block d-md-block d-lg-block">
-                        <a href="#0">6</a>
+                        <a href="#">6</a>
                       </li>
                       <li>
-                        <a href="#0" className="next">
+                        <a href="#" className="next">
                           {" "}
                           <i className="flaticon-right-arrow" />{" "}
                         </a>
@@ -2842,7 +2780,7 @@ export default function Job() {
                     </label>
                   </p>
                   <div className="seeMore">
-                    <a href="#0">view all categories</a>
+                    <a href="#">view all categories</a>
                   </div>
                 </div>
               </div>
@@ -2898,7 +2836,7 @@ export default function Job() {
                     </label>
                   </p>
                   <div className="seeMore">
-                    <a href="#0">view all categories</a>
+                    <a href="#">view all categories</a>
                   </div>
                 </div>
               </div>
@@ -2954,7 +2892,7 @@ export default function Job() {
                     </label>
                   </p>
                   <div className="seeMore">
-                    <a href="#0">view all categories</a>
+                    <a href="#">view all categories</a>
                   </div>
                 </div>
               </div>
