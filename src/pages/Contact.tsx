@@ -2,31 +2,6 @@ export default function Contact() {
   return (
     <div>
       <>
-        {/* navi wrapper End */}
-        {/* top header wrapper start */}
-        <div className="page_title_section">
-          <div className="page_header">
-            <div className="container">
-              <div className="row">
-                {/* section_heading start */}
-                <div className="col-lg-9 col-md-8 col-12 col-sm-7">
-                  <h1>contact us</h1>
-                </div>
-                <div className="col-lg-3 col-md-4 col-12 col-sm-5">
-                  <div className="sub_title_section">
-                    <ul className="sub_title">
-                      <li>
-                        {" "}
-                        <a href="#0"> Home </a>&nbsp; / &nbsp;{" "}
-                      </li>
-                      <li>contact us</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         {/* top header wrapper end */}
         {/* contact_icon_section start*/}
         <div className="contact_icon_section jb_cover">

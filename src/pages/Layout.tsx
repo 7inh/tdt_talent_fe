@@ -8,7 +8,7 @@ import { selectLogin } from "../features/login/loginSlice";
 export default function Layout() {
   const { token } = useSelector(selectLogin);
   const location = useLocation();
- 
+
   return (
     <div>
       {/* A "layout route" is a good place to put markup you want to
@@ -237,9 +237,9 @@ export default function Layout() {
       <div className="cp_navi_main_wrapper jb_cover">
         <div className="container-fluid">
           <div className="cp_logo_wrapper">
-            <a href="index.html">
+            <Link to="/">
               <img src="images/logo.png" alt="logo" />
-            </a>
+            </Link>
           </div>
           {/* mobile menu area start */}
           <header className="mobail_menu d-block d-sm-block d-md-block d-lg-none d-xl-none">
@@ -328,9 +328,14 @@ export default function Layout() {
                   </a>
                 </li>
                 <li>
-                  <a href="contact_us.html" className="gc_main_navigation">
+                  <Link
+                    to="/jobs"
+                    className={`gc_main_navigation ${
+                      location.pathname.match(/^\/jobs/g) ? "active_class" : ""
+                    }`}
+                  >
                     jobs
-                  </a>
+                  </Link>
                 </li>
                 <li>
                   <a href="contact_us.html" className="gc_main_navigation">
