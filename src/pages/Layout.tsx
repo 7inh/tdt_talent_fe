@@ -1,10 +1,11 @@
+import { useSelector } from "react-redux";
 import { Link, Outlet, useLocation } from "react-router-dom";
 import Login from "../features/login/Login";
+import { selectLogin } from "../features/login/loginSlice";
 import User from "../features/user/User";
-import useUserData from "../hooks/useUserData";
 
 export default function Layout() {
-  const { token, user } = useUserData();
+  const { user, token } = useSelector(selectLogin);
   const location = useLocation();
 
   return (

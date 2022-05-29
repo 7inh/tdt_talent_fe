@@ -1,6 +1,6 @@
-import { async } from "@firebase/util";
 import { useCallback, useEffect, useState } from "react";
-import useUserData from "../../hooks/useUserData";
+import { useSelector } from "react-redux";
+import { selectLogin } from "../login/loginSlice";
 
 export function JobItem({ title, employment_type }: any) {
   return (
@@ -143,7 +143,7 @@ export default function JobList() {
     );
   }, [jobs]);
 
-  const { token } = useUserData();
+  const { token } = useSelector(selectLogin);
 
   useEffect(() => {
     const getJobs = async () => {
@@ -158,7 +158,7 @@ export default function JobList() {
       };
 
       const response = await axios(config);
-      console.log('response', response.data);
+      console.log("response", response.data);
 
       setJobs(response.data);
     };
