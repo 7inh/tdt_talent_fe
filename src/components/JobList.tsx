@@ -1,6 +1,5 @@
-import { useCallback, useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectLogin } from "../login/loginSlice";
+import { useCallback } from "react";
+import useJobList from "../hooks/useJobList";
 
 export function JobItem({ title, employment_type }: any) {
   return (
@@ -120,17 +119,12 @@ export function JobItem({ title, employment_type }: any) {
 }
 
 export default function JobList() {
-  const [jobs, setJobs] = useState([
-    {
-      title: "",
-      employment_type: "",
-    },
-  ]);
+  const jobs = useJobList();
 
   const displayJobs = useCallback(() => {
     return (
       <>
-        {jobs.map((job, i) => {
+        {jobs.map((job: any, i: number) => {
           return (
             <JobItem
               key={i}
@@ -142,29 +136,6 @@ export default function JobList() {
       </>
     );
   }, [jobs]);
-
-  const { token } = useSelector(selectLogin);
-
-  useEffect(() => {
-    const getJobs = async () => {
-      var axios = require("axios");
-
-      var config = {
-        method: "get",
-        url: "http://localhost:7000/api/job/get",
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-
-      const response = await axios(config);
-      console.log("response", response.data);
-
-      setJobs(response.data);
-    };
-
-    getJobs();
-  }, [token]);
 
   return (
     <div className="job_filter_listing_wrapper jb_cover">
