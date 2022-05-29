@@ -1,9 +1,8 @@
-import { useDispatch, useSelector } from "react-redux";
-import { removeLogin, selectLogin } from "../login/loginSlice";
 import { MdDashboard } from "react-icons/md";
+import { useDispatch } from "react-redux";
+import { removeLogin } from "../login/loginSlice";
 
-export default function User() {
-  const { user } = useSelector(selectLogin);
+export default function User({ user }: any) {
   const dispatch = useDispatch();
 
   const logout = () => {

@@ -18,6 +18,8 @@ export default function Login() {
     const googleToken = await loginWithGoogle();
     const user = await loginAPI(googleToken);
 
+    console.log("user", user)
+
     dispatch(setLogin({ token: googleToken }));
     dispatch(setUser({ user }));
   };

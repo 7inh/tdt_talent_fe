@@ -27,7 +27,7 @@ export const LoginSlice = createSlice({
       user && localStorage.setItem("user", JSON.stringify(user));
     },
     removeLogin: (state) => {
-      state = initialState;
+      console.log("---------------+++++")
       localStorage.setItem("token", "");
       localStorage.setItem("user", "{}");
       window.location.reload();

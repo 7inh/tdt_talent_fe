@@ -1,12 +1,10 @@
-import { Link, Outlet } from "react-router-dom";
+import { Link, Outlet, useLocation } from "react-router-dom";
 import Login from "../features/login/Login";
-import { useLocation } from "react-router-dom";
 import User from "../features/user/User";
-import { useSelector } from "react-redux";
-import { selectLogin } from "../features/login/loginSlice";
+import useUserData from "../hooks/useUserData";
 
 export default function Layout() {
-  const { token } = useSelector(selectLogin);
+  const { token, user } = useUserData();
   const location = useLocation();
 
   return (
@@ -307,7 +305,7 @@ export default function Layout() {
             {/* .cd-dropdown-wrapper */}
           </header>
 
-          {token ? <User /> : <Login />}
+          {token ? <User user={user} /> : <Login />}
 
           <div className="jb_navigation_wrapper">
             <div className="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">
