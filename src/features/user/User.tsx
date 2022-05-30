@@ -1,5 +1,6 @@
 import { MdDashboard } from "react-icons/md";
 import { useDispatch } from "react-redux";
+import NotificationList from "../../components/NotificationList";
 import { removeLogin } from "../login/loginSlice";
 
 export default function User({ user }: any) {
@@ -11,7 +12,20 @@ export default function User({ user }: any) {
 
   return (
     <div className="menu_btn_box jb_cover">
-      <div className="jb_profile_box user-controller img">
+      <div className="jb_profile_box user-controller img centroid">
+        <div className="nice-select" tabIndex={0}><span className="current">
+          <i
+            className="fas fa-bell"
+            style={{
+              fontSize: 35,
+              paddingTop: 10,
+              paddingRight: 15,
+              color: "#ff3366",
+            }}
+          ></i></span>
+          <NotificationList />
+        </div>
+
         <div className="nice-select" tabIndex={0}>
           <span
             className="current"
