@@ -1,6 +1,7 @@
 import * as React from "react";
 import { Route, Routes } from "react-router-dom";
 import About from "./pages/About";
+import Company from "./pages/Company";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
 import Job from "./pages/Job";
@@ -22,6 +23,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
           <Route path="jobs" element={<Job />} />
+          <Route path="company" element={<Company />} />
           <Route path="dashboard" element={<CandidateDashBoard />} />
           <Route path="*" element={<Notfound />} />
         </Route>
