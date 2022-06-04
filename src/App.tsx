@@ -9,12 +9,13 @@ import Layout from "./pages/_Layout";
 import Notfound from "./pages/Notfound";
 import SignUp from "./pages/SignIn";
 import Dashboard from "./pages/dashboards/Dashboard";
+import Resume from "./pages/dashboards/candidate/Resume";
 
 export default function App() {
   return (
     <div>
       <Routes>
-          {/* <Route path="/dashboard" element={<Layout />}>
+        {/* <Route path="/dashboard" element={<Layout />}>
             <Route index path="candidate" element={<Home />} />
           </Route> */}
         <Route path="/" element={<Layout />}>
@@ -24,9 +25,11 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="jobs" element={<Job />} />
           <Route path="companies" element={<Company />} />
-          <Route path="dashboard" element={<Dashboard />} />
-          <Route path="*" element={<Notfound />} />
+          <Route path="dashboard" element={<Dashboard />}>
+            <Route index element={<Resume />} />
+          </Route>
         </Route>
+        <Route path="*" element={<Notfound />} />
       </Routes>
     </div>
   );

@@ -49,7 +49,7 @@ export default function User({ user }: any) {
           </span>
           <ul className="list">
             <li>
-              <Link to="/dashboard/candidate">
+              <Link to="/dashboard">
                 <i className="fas">
                   <MdDashboard />
                 </i>
