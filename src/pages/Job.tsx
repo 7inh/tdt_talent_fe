@@ -18,7 +18,7 @@ export default function Job() {
                   <ul className="sub_title">
                     <li>
                       {" "}
-                      <a href="#"> Home </a>&nbsp; / &nbsp;{" "}
+                      <a href="#0"> Home </a>&nbsp; / &nbsp;{" "}
                     </li>
                     <li>job listing</li>
                   </ul>
