@@ -14,7 +14,7 @@ export default function Layout() {
           <div className="spinner" />
         </div>
       </div>
-      <div className="cursor" />
+      {/* <div className="cursor" /> */}
       {/* Top Scroll Start */}
       <a href="#0" id="return-to-top">
         <i className="fas fa-angle-double-up" />
