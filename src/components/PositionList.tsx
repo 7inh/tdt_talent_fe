@@ -1,12 +1,6 @@
 import { useCallback, useEffect } from "react";
 import usePositionList from "../hooks/usePositionList";
 
-declare global {
-  interface Window {
-    refreshSelect(): void;
-  }
-}
-
 export function PositionItem({ id, title, description }: any) {
   return <option>{title}</option>;
 }
@@ -32,14 +26,13 @@ export default function PositionList() {
   }, [positions]);
 
   useEffect(() => {
-    console.log("should render", positions);
     window.refreshSelect();
   }, [positions]);
 
   return (
     <>
       <label>job position</label>
-      <select>{displayPosition()}</select>
+      <select className="react-select">{displayPosition()}</select>
     </>
   );
 }

@@ -62,7 +62,8 @@
       });
 
       function refreshSelect() {
-        $("select").niceSelect("update");
+        $(".react-select").niceSelect("destroy");
+        $(".react-select").niceSelect();
       }
     </script>
     <!-- custom js-->

@@ -5,7 +5,6 @@ import CompanyDashboard from "./company/CompanyDashboard";
 
 export default function Dashboard() {
   const { user } = useSelector(selectLogin);
-  console.log("user", user);
 
   switch (user.role) {
     case "company": {

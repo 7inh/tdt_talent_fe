@@ -37,7 +37,7 @@ export default function Company() {
           <div className="row">
             <div className="col-lg-12 col-md-12 col-sm-12">
               <div className="filter-area jb_cover">
-                <select>
+                <select className="react-select">
                   <option>short by</option>
                   <option>most recent </option>
                   <option>most popular</option>

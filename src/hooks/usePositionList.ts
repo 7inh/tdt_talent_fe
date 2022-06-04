@@ -25,7 +25,6 @@ const usePositionList = () => {
       };
 
       const response = await axios(config);
-      console.log("setPositions", response.data);
 
       setPositions(response.data);
     };

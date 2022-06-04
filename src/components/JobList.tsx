@@ -240,7 +240,7 @@ export default function JobList() {
           <div className="col-lg-9 col-md-12 col-sm-12 col-12">
             <div className="job_listing_left_side jb_cover">
               <div className="filter-area jb_cover">
-                <select>
+                <select className="react-select">
                   <option>short by</option>
                   <option>most recent </option>
                   <option>most popular</option>

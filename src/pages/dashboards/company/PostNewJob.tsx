@@ -19,11 +19,6 @@ export default function PostNewJob() {
           <div className="dashboard_job_overview_header jb_cover">
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div className="dashboard_select_box">
-                  <PositionList />
-                </div>
-              </div>
-              <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="dashboard_contect_form3">
                   <label>job title</label>
                   <input
@@ -35,29 +30,19 @@ export default function PostNewJob() {
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="dashboard_select_box">
-                  <label>state</label>
-                  <select>
-                    <option>pending</option>
-                    <option>active</option>
-                    <option>expired</option>
-                    <option>rejected</option>
-                  </select>
+                  <PositionList />
                 </div>
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="dashboard_contect_form3">
-                  <label>attach JD</label>
-                  <input
-                    type="text"
-                    name="name"
-                    placeholder="Attach Job Description"
-                  />
+                  <label>location</label>
+                  <input type="text" name="name" placeholder="Location Name" />
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
                 <div className="dashboard_select_box">
                   <label>job type</label>
-                  <select>
+                  <select className="react-select">
                     <option>full time</option>
                     <option>part time</option>
                     <option>freelance</option>
@@ -79,12 +64,6 @@ export default function PostNewJob() {
                     name="name"
                     placeholder="1,5 years experience"
                   />
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div className="dashboard_contect_form3">
-                  <label>location</label>
-                  <input type="text" name="name" placeholder="Location Name" />
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">

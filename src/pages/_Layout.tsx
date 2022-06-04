@@ -1,8 +1,21 @@
-import { Outlet } from "react-router-dom";
+import { useEffect } from "react";
+import { Outlet, useLocation } from "react-router-dom";
 import Footer from "../components/Footer";
 import Navigation from "../components/Navigation";
 
+declare global {
+  interface Window {
+    refreshSelect(): void;
+  }
+}
+
 export default function Layout() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.refreshSelect();
+  }, [location]);
+
   return (
     <div>
       {/* A "layout route" is a good place to put markup you want to
@@ -27,7 +40,6 @@ export default function Layout() {
       <Outlet />
 
       <Footer />
-
     </div>
   );
 }

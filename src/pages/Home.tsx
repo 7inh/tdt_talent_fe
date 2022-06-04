@@ -20,7 +20,7 @@ export default function Home() {
           </div>
           <div className="select_box">
             <i className="flaticon-map" />
-            <select>
+            <select className="react-select">
               <option>select location</option>
               <option>california</option>
               <option>los velas</option>
@@ -30,7 +30,7 @@ export default function Home() {
           </div>
           <div className="select_box select_box_2">
             <i className="flaticon-squares-gallery-grid-layout-interface-symbol" />
-            <select>
+            <select className="react-select">
               <option>category</option>
               <option>real estate</option>
               <option>electronics</option>
@@ -40,7 +40,7 @@ export default function Home() {
           </div>
           <div className="select_box">
             <i className="flaticon-statistics" />
-            <select>
+            <select className="react-select">
               <option>experience</option>
               <option>5 years</option>
               <option>3 years</option>
