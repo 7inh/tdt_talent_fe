@@ -196,7 +196,7 @@ export default function Resume() {
               </div>
             </div>
           </div>
-          <div className="job_overview_header jb_cover">
+          <div className="dashboard_job_overview_header jb_cover">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12 col-12">
                 <div className="jp_listing_overview_list_main_wrapper jb_cover">
@@ -361,7 +361,7 @@ export default function Resume() {
               </div>
             </div>
           </div>
-          <div className="job_overview_header pdd jb_cover">
+          <div className="dashboard_job_overview_header pdd jb_cover">
             <p>
               Google is and always will be an engineering company. We hire
               people with a broad set of icalskills who are ready to tackle some

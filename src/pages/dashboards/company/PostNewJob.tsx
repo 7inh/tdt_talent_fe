@@ -1,4 +1,14 @@
+import { useEffect, useState } from "react";
+import QuillBox from "../../../components/QuillBox";
+
 export default function PostNewJob() {
+  const [description, setDescription] = useState("")
+
+  useEffect(() => {
+    console.log("description", description)
+  }, [description])
+
+
   return (
     <>
       <div className="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -6,21 +16,23 @@ export default function PostNewJob() {
           <div className="job_filter_sidebar_heading jb_cover">
             <h1> post new job</h1>
           </div>
-          <div className="job_overview_header jb_cover">
+          <div className="dashboard_job_overview_header jb_cover">
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div className="select_box">
+                <div className="dashboard_select_box">
                   <label>job category</label>
                   <select>
-                    <option>UI/UX designer</option>
-                    <option>accountant</option>
-                    <option>graphic designer</option>
-                    <option>teacher</option>
+                    <option>AI-Engine</option>
+                    <option>Backend developer</option>
+                    <option>Frontend developer</option>
+                    <option>Game developer</option>
+                    <option>Mobiles developer</option>
+                    <option>Testing developer</option>
                   </select>
                 </div>
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div className="contect_form3">
+                <div className="dashboard_contect_form3">
                   <label>job title</label>
                   <input
                     type="text"
@@ -29,43 +41,63 @@ export default function PostNewJob() {
                   />
                 </div>
               </div>
+              <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div className="dashboard_select_box">
+                  <label>state</label>
+                  <select>
+                    <option>pending</option>
+                    <option>active</option>
+                    <option>expired</option>
+                    <option>rejected</option>
+                  </select>
+                </div>
+              </div>
+              <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div className="dashboard_contect_form3">
+                  <label>attach JD</label>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="Attach Job Description"
+                  />
+                </div>
+              </div>
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div className="select_box">
+                <div className="dashboard_select_box">
                   <label>job type</label>
                   <select>
                     <option>full time</option>
                     <option>part time</option>
-                    <option> temperory</option>
                     <option>freelance</option>
                   </select>
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div className="contect_form3">
-                  <label>working hours</label>
-                  <input type="text" name="name" placeholder="40/h Week" />
-                </div>
-              </div>
-              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div className="select_box">
+                <div className="dashboard_contect_form3">
                   <label>salary</label>
-                  <select>
-                    <option>$12K - 15k P.A.</option>
-                    <option>$12K - 20k P.A.</option>
-                    <option> $12K - 35k P.A.</option>
-                    <option>$12K - 45k P.A.</option>
-                  </select>
+                  <input type="text" name="name" placeholder="Input salary" />
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
-                <div className="select_box">
+                <div className="dashboard_contect_form3">
                   <label>experience</label>
-                  <select>
-                    <option>1 year experience</option>
-                    <option>2 year experience</option>
-                    <option> 3 year experience</option>
-                    <option>4 year experience</option>
-                  </select>
+                  <input
+                    type="text"
+                    name="name"
+                    placeholder="3 years experience"
+                  />
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div className="dashboard_contect_form3">
+                  <label>location</label>
+                  <input type="text" name="name" placeholder="Location Name" />
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div className="dashboard_contect_form3">
+                  <label>candidate limit</label>
+                  <input type="text" name="name" placeholder="30 candidates" />
                 </div>
               </div>
             </div>
@@ -73,9 +105,12 @@ export default function PostNewJob() {
         </div>
       </div>
       <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-        <div className="job_filter_category_sidebar jb_cover">
+        <div className=" jb_cover">
           <div className="job_filter_sidebar_heading jb_cover">
             <h1> about this job</h1>
+          </div>
+          <div className="jb_cover">
+          <QuillBox setValue={setDescription} />
           </div>
         </div>
       </div>

@@ -4810,6 +4810,10 @@ a:hover {
   background: #fff;
 }
 
+.job_overview_header{
+	padding:40px;
+}
+
 .webstrot_tech_detail .job_overview_header {
   padding: 30px;
 }

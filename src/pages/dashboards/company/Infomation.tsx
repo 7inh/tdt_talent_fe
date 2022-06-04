@@ -157,7 +157,7 @@ export default function Information() {
               </div>
             </div>
           </div>
-          <div className="job_overview_header jb_cover">
+          <div className="dashboard_job_overview_header jb_cover">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12 col-12">
                 <div className="jp_listing_overview_list_main_wrapper jb_cover">
@@ -301,7 +301,7 @@ export default function Information() {
               </div>
             </div>
           </div>
-          <div className="job_overview_header pdd jb_cover">
+          <div className="dashboard_job_overview_header pdd jb_cover">
             <p>{profile.description}</p>
           </div>
         </div>

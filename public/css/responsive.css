@@ -818,7 +818,7 @@
 		width:20%; border-radius:0;
 	}
 	.contct_form_new3{width:80%;}
-	.contect_form3 input{
+	.dashboard_contect_form3 input{
 		background:transparent;
 	}
 	.index3_listing_jobs, .client_wrapper_cntnt, .jp_register_section_main_wrapper{
@@ -874,7 +874,7 @@
 		margin-top:0;
 		padding-top:70px;
 	}
-	.select_box{margin-left:12px;}
+	.dashboard_select_box{margin-left:12px;}
 	.select_box_2{margin-left:0;}
 	.jb_banner_left h1 {
 		font-size: 38px;
@@ -1050,10 +1050,10 @@
 	}
 }
 @media (max-width: 440px){
-	.contect_form3{
+	.dashboard_contect_form3{
 		width:100%;
 	}
-	.select_box{
+	.dashboard_select_box{
 		width:100%;
 		margin-left:0;
 	}
@@ -1132,7 +1132,7 @@
 	.jp_job_post_right_btn_wrapper li:nth-child(2), .job_listing_grid_wrapper .jp_job_post_right_btn_wrapper li:last-child{
 		margin-left:7px;
 	}
-	.job_overview_header, .jb_keyword_key_wrapper, .jp_job_res, .jp_first_blog_post_cont_wrapper, .jp_blog_single_client_main_section{
+	.dashboard_job_overview_header, .jb_keyword_key_wrapper, .jp_job_res, .jp_first_blog_post_cont_wrapper, .jp_blog_single_client_main_section{
 		padding:25px;
 	}
 	.map_wrapper{padding:0;}
