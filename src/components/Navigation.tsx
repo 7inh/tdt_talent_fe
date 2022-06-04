@@ -15,7 +15,7 @@ export default function Navigation() {
           <Link to="/">
             {" "}
             <span>
-              <img src="images/logo.png" alt="img" />
+              <img src="/images/logo.png" alt="img" />
             </span>
           </Link>
         </h2>
@@ -81,7 +81,7 @@ export default function Navigation() {
         <div className="container-fluid">
           <div className="cp_logo_wrapper">
             <Link to="/">
-              <img src="images/logo.png" alt="logo" />
+              <img src="/images/logo.png" alt="logo" />
             </Link>
           </div>
           {/* mobile menu area start */}
