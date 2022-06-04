@@ -2,36 +2,38 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectLogin } from "../features/login/loginSlice";
 
-const useCompanyList = () => {
+const usePositionList = () => {
   const { token } = useSelector(selectLogin);
-  const [company, setCompany] = useState([
+  const [positions, setPositions] = useState([
     {
-      full_name: "",
-      address: "",
+      id: 0,
+      title: "",
+      description: "",
     },
   ]);
 
   useEffect(() => {
-    const getCompany = async () => {
+    const getPosition = async () => {
       var axios = require("axios");
 
       var config = {
         method: "get",
-        url: "http://localhost:7000/api/account/get_all_company",
+        url: "http://localhost:7000/api/position/get",
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
 
       const response = await axios(config);
+      console.log("setPositions", response.data);
 
-      setCompany(response.data);
+      setPositions(response.data);
     };
 
-    getCompany();
+    getPosition();
   }, [token]);
 
-  return company;
+  return positions;
 };
 
-export default useCompanyList;
+export default usePositionList;

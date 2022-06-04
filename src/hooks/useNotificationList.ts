@@ -24,7 +24,6 @@ const useNotificationList = () => {
       };
 
       const response = await axios(config);
-      console.log("response", response.data);
 
       setNotifications(response.data);
     };

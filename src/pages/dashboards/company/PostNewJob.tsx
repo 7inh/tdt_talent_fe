@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
+import PositionList from "../../../components/PositionList";
 import QuillBox from "../../../components/QuillBox";
 
 export default function PostNewJob() {
-  const [description, setDescription] = useState("")
+  const [description, setDescription] = useState("");
 
   useEffect(() => {
-    console.log("description", description)
-  }, [description])
-
+    console.log("description", description);
+  }, [description]);
 
   return (
     <>
@@ -20,15 +20,7 @@ export default function PostNewJob() {
             <div className="row">
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="dashboard_select_box">
-                  <label>job category</label>
-                  <select>
-                    <option>AI-Engine</option>
-                    <option>Backend developer</option>
-                    <option>Frontend developer</option>
-                    <option>Game developer</option>
-                    <option>Mobiles developer</option>
-                    <option>Testing developer</option>
-                  </select>
+                  <PositionList />
                 </div>
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -82,9 +74,10 @@ export default function PostNewJob() {
                 <div className="dashboard_contect_form3">
                   <label>experience</label>
                   <input
-                    type="text"
+                    type="number"
+                    step="0.5"
                     name="name"
-                    placeholder="3 years experience"
+                    placeholder="1,5 years experience"
                   />
                 </div>
               </div>
@@ -110,7 +103,14 @@ export default function PostNewJob() {
             <h1> about this job</h1>
           </div>
           <div className="jb_cover">
-          <QuillBox setValue={setDescription} />
+            <QuillBox setValue={setDescription} />
+          </div>
+        </div>
+      </div>
+      <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+        <div className="login_remember_box jb_cover">
+          <div className="header_btn search_btn jb_cover">
+            <a href="#0">Submit</a>
           </div>
         </div>
       </div>

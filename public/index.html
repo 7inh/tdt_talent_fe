@@ -16,7 +16,6 @@
 
     <link rel="stylesheet" type="text/css" href="/css/dashboard_style.css" />
 
-    
     <link rel="stylesheet" type="text/css" href="/css/animate.css" />
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
     <link rel="stylesheet" type="text/css" href="/css/fonts.css" />
@@ -32,7 +31,6 @@
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link rel="stylesheet" type="text/css" href="/css/responsive.css" />
     <link rel="stylesheet" type="text/css" href="/css/my.css" />
-
 
     <!--favicon-->
     <link rel="shortcut icon" type="image/png" href="/images/favicon.png" />
@@ -62,6 +60,10 @@
       $(document).ready(function () {
         $.getScript("/js/plugin.js");
       });
+
+      function refreshSelect() {
+        $("select").niceSelect("update");
+      }
     </script>
     <!-- custom js-->
   </body>

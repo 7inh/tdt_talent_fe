@@ -32,7 +32,6 @@ const useProfile = () => {
       };
 
       const response = await axios(config);
-      console.log('response', response)
 
       setProfile(response.data);
     };
