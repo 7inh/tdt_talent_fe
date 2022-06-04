@@ -167,7 +167,7 @@ export default function Navigation() {
                   </Link>
                 </li>
                 <li>
-                  <a href="contact_us.html" className="gc_main_navigation">
+                  <a href="#0" className="gc_main_navigation">
                     news
                   </a>
                 </li>

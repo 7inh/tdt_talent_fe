@@ -2,7 +2,7 @@ import useProfile from "../../../hooks/useProfile";
 
 export default function Resume() {
   const profile = useProfile();
-  console.log("profile", profile);
+  console.log("profile2", profile);
   return (
     <>
       <div className="col-lg-12 col-md-12 col-sm-12 col-12">
