@@ -403,7 +403,7 @@ export default function Layout() {
 
       {/* blog wrapper end*/}
       {/* footer Wrapper Start */}
-      <div className="footer jb_cover">
+      <div className="footer jb_cover" style={{marginTop: 50}}>
         <div className="container">
           <div className="row">
             <div className="col-lg-3 col-sm-6 col-12">

@@ -57,17 +57,6 @@ export default function CandidateDashBoard() {
                 <div className="emp_follow_link jb_cover">
                   <ul className="feedlist">
                     <li>
-                      <a href="candidate_dashboard.html">
-                        <i className="fas fa-tachometer-alt" /> dashboard
-                      </a>
-                    </li>
-                    <li>
-                      <a href="candidate_edit_profile.html">
-                        <i className="fas fa-edit" />
-                        edit profile
-                      </a>
-                    </li>
-                    <li>
                       <a href="candidate_resume.html" className="link_active">
                         <i className="fas fa-file" />
                         resume
@@ -85,29 +74,11 @@ export default function CandidateDashBoard() {
                         applied job
                       </a>
                     </li>
-                    <li>
-                      <a href="message.html">
-                        <i className="fas fa-envelope" />
-                        message
-                      </a>
-                    </li>
-                    <li>
-                      <a href="pricing_plans.html">
-                        <i className="fas fa-tag" />
-                        pricing plans
-                      </a>
-                    </li>
                   </ul>
                   <ul className="feedlist logout_link jb_cover">
                     <li>
                       <a href="#0">
                         <i className="fas fa-power-off" /> log out{" "}
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0" data-toggle="modal" data-target="#myModal">
-                        <i className="fas fa-trash-alt" />
-                        delete profile
                       </a>
                     </li>
                   </ul>
@@ -175,7 +146,7 @@ export default function CandidateDashBoard() {
                   <div className="job_filter_category_sidebar company_wrapper jb_cover">
                     <div className="job_filter_sidebar_heading jb_cover">
                       <h1>
-                        basic information
+                        General information
                         <span>
                           <a
                             href="#0"
@@ -510,16 +481,6 @@ export default function CandidateDashBoard() {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {/*employee dashboard wrapper end*/}
-      {/* newsletter wrapper start */}
-      <div className="jb_cover">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-12 col-md-12 col-sm-12">
             </div>
           </div>
         </div>
