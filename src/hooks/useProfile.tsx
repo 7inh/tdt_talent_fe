@@ -25,19 +25,21 @@ const useProfile = () => {
 
       var config = {
         method: "get",
-        url: "http://localhost:7000/api/account/profile",
+        url: "http://localhost:7000/api/profile/get",
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
 
       const response = await axios(config);
+      console.log('response', response)
 
       setProfile(response.data);
     };
 
     getProfile();
   }, [token]);
+
 
   return profile;
 };
