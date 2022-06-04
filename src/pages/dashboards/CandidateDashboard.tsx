@@ -42,7 +42,6 @@ export default function CandidateDashBoard() {
                 />
                 <div className="emp_web_profile candidate_web_profile jb_cover">
                   <h4>{profile.full_name}</h4>
-                  <p>{profile.role}</p>
                   <div className="skills jb_cover">
                     <div className="skill-item jb_cover">
                       <h6>
@@ -183,7 +182,7 @@ export default function CandidateDashBoard() {
                                   <div className="row">
                                     <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                                       <div className="category_lavel jb_cover">
-                                        <p>job :</p>
+                                        <p>full name  :</p>
                                       </div>
                                     </div>
                                     <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -191,7 +190,7 @@ export default function CandidateDashBoard() {
                                         <input
                                           type="text"
                                           name="name"
-                                          placeholder="Graphic Designer"
+                                          value={profile.full_name}
                                         />
                                       </div>
                                     </div>
@@ -202,7 +201,7 @@ export default function CandidateDashBoard() {
                                   <div className="row">
                                     <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                                       <div className="category_lavel jb_cover">
-                                        <p>location :</p>
+                                        <p>email :</p>
                                       </div>
                                     </div>
                                     <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -210,7 +209,7 @@ export default function CandidateDashBoard() {
                                         <input
                                           type="text"
                                           name="name"
-                                          placeholder="loss angles"
+                                          value={profile.contact_mail}
                                         />
                                       </div>
                                     </div>
@@ -228,7 +227,7 @@ export default function CandidateDashBoard() {
                                         <input
                                           type="text"
                                           name="name"
-                                          placeholder="+91 983622711"
+                                          value={profile.phone_number}
                                         />
                                       </div>
                                     </div>
@@ -238,7 +237,25 @@ export default function CandidateDashBoard() {
                                   <div className="row">
                                     <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                                       <div className="category_lavel jb_cover">
-                                        <p>email :</p>
+                                        <p>location :</p>
+                                      </div>
+                                    </div>
+                                    <div className="col-lg-9 col-md-9 col-sm-12 col-12">
+                                      <div className="delete_jb_form">
+                                        <input
+                                          type="text"
+                                          name="name"
+                                          value={profile.address}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="category_wrapper jb_cover">
+                                  <div className="row">
+                                    <div className="col-lg-3 col-md-3 col-sm-12 col-12">
+                                      <div className="category_lavel jb_cover">
+                                        <p>contry :</p>
                                       </div>
                                     </div>
                                     <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -246,7 +263,25 @@ export default function CandidateDashBoard() {
                                         <input
                                           type="email"
                                           name="email"
-                                          placeholder="digital@example.com"
+                                          value={profile.country}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="category_wrapper jb_cover">
+                                  <div className="row">
+                                    <div className="col-lg-3 col-md-3 col-sm-12 col-12">
+                                      <div className="category_lavel jb_cover">
+                                        <p>city</p>
+                                      </div>
+                                    </div>
+                                    <div className="col-lg-9 col-md-9 col-sm-12 col-12">
+                                      <div className="delete_jb_form">
+                                        <input
+                                          type="text"
+                                          name="name"
+                                          value={profile.city}
                                         />
                                       </div>
                                     </div>
@@ -264,7 +299,25 @@ export default function CandidateDashBoard() {
                                         <input
                                           type="text"
                                           name="name"
-                                          placeholder="www.digital.com"
+                                          value={profile.website}
+                                        />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div className="category_wrapper jb_cover">
+                                  <div className="row">
+                                    <div className="col-lg-3 col-md-3 col-sm-12 col-12">
+                                      <div className="category_lavel jb_cover">
+                                        <p>attach resume</p>
+                                      </div>
+                                    </div>
+                                    <div className="col-lg-9 col-md-9 col-sm-12 col-12">
+                                      <div className="delete_jb_form">
+                                        <input
+                                          type="text"
+                                          name="name"
+                                          value={profile.attach_resume}
                                         />
                                       </div>
                                     </div>
