@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import useJobList from "../hooks/useJobList";
 
-export function JobItem({ title, employment_type }: any) {
+export function JobItem({ title, employment_type, salary, location}: any) {
   return (
     <div className="col-lg-12 col-md-12 col-sm-12 col-12">
       <div className="job_listing_left_fullwidth jb_cover">
@@ -17,12 +17,16 @@ export function JobItem({ title, employment_type }: any) {
               </h4>
               <ul>
                 <li>
-                  <i className="flaticon-cash" />
-                  &nbsp; $12K - 15k P.A.
+                  <i className="flaticon-cash"/>
+                    <h4>
+                      <a href="#">{salary} $ </a>
+                    </h4>
                 </li>
                 <li>
                   <i className="flaticon-location-pointer" />
-                  &nbsp; Los Angeles, Califonia PO, 455001
+                    <h4>
+                      <a href="#">{location}</a>
+                    </h4>
                 </li>
               </ul>
             </div>
@@ -130,6 +134,8 @@ export default function JobList() {
               key={i}
               title={job.title}
               employment_type={job.employment_type}
+              salary = {job.salary}
+              location = {job.location}
             />
           );
         })}
