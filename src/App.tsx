@@ -9,7 +9,6 @@ import Layout from "./pages/_Layout";
 import Notfound from "./pages/Notfound";
 import SignUp from "./pages/SignIn";
 import Dashboard from "./pages/dashboards/Dashboard";
-import Resume from "./pages/dashboards/candidate/Resume";
 
 export default function App() {
   return (
@@ -25,9 +24,7 @@ export default function App() {
           <Route path="about" element={<About />} />
           <Route path="jobs" element={<Job />} />
           <Route path="companies" element={<Company />} />
-          <Route path="dashboard" element={<Dashboard />}>
-            <Route index element={<Resume />} />
-          </Route>
+          <Route path="dashboard" element={<Dashboard />}/>
         </Route>
         <Route path="*" element={<Notfound />} />
       </Routes>

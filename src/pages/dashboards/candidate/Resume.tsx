@@ -48,7 +48,7 @@ export default function Resume() {
                               <input
                                 type="text"
                                 name="name"
-                                value={profile.full_name}
+                                placeholder={profile.full_name || ""}
                               />
                             </div>
                           </div>
@@ -67,7 +67,7 @@ export default function Resume() {
                               <input
                                 type="text"
                                 name="name"
-                                value={profile.contact_mail}
+                                placeholder={profile.contact_mail || "example@gmail.com"}
                               />
                             </div>
                           </div>
@@ -85,7 +85,7 @@ export default function Resume() {
                               <input
                                 type="text"
                                 name="name"
-                                value={profile.phone_number}
+                                placeholder={profile.phone_number|| "09........"}
                               />
                             </div>
                           </div>
@@ -103,7 +103,7 @@ export default function Resume() {
                               <input
                                 type="text"
                                 name="name"
-                                value={profile.address}
+                                placeholder={profile.address || "Ho Chi Minh City" }
                               />
                             </div>
                           </div>
@@ -121,7 +121,7 @@ export default function Resume() {
                               <input
                                 type="email"
                                 name="email"
-                                value={profile.country}
+                                placeholder={profile.country || "Vietnam"}
                               />
                             </div>
                           </div>
@@ -139,7 +139,7 @@ export default function Resume() {
                               <input
                                 type="text"
                                 name="name"
-                                value={profile.city}
+                                placeholder={profile.city || "Ho Chi Minh City"}
                               />
                             </div>
                           </div>
@@ -157,7 +157,7 @@ export default function Resume() {
                               <input
                                 type="text"
                                 name="name"
-                                value={profile.website}
+                                placeholder={profile.website || "example.com"}
                               />
                             </div>
                           </div>
@@ -175,7 +175,7 @@ export default function Resume() {
                               <input
                                 type="text"
                                 name="name"
-                                value={profile.attach_resume}
+                                placeholder={profile.attach_resume || "none"}
                               />
                             </div>
                           </div>
