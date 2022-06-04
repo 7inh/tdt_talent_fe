@@ -42,16 +42,6 @@ export default function CandidateDashBoard() {
                 />
                 <div className="emp_web_profile candidate_web_profile jb_cover">
                   <h4>{profile.full_name}</h4>
-                  <div className="skills jb_cover">
-                    <div className="skill-item jb_cover">
-                      <h6>
-                        profile<span>70%</span>
-                      </h6>
-                      <div className="skills-progress">
-                        <span data-value="70%" />
-                      </div>
-                    </div>
-                  </div>
                 </div>
                 <div className="emp_follow_link jb_cover">
                   <ul className="feedlist">
