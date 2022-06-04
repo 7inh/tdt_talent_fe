@@ -392,7 +392,7 @@ export default function CandidateDashBoard() {
                   <div className="job_filter_category_sidebar company_wrapper jb_cover">
                     <div className="job_filter_sidebar_heading jb_cover">
                       <h1>
-                        about us
+                        about
                         <span>
                           <a
                             href="#0"
