@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PositionList from "../../../components/PositionList";
 import QuillBox from "../../../components/QuillBox";
 
 export default function PostNewJob() {
   const [description, setDescription] = useState("");
+  const positionInput = useRef<HTMLSelectElement>(null)
 
   useEffect(() => {
+    console.log("positionInput", positionInput.current?.value);
     console.log("description", description);
   }, [description]);
 
@@ -30,7 +32,7 @@ export default function PostNewJob() {
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="dashboard_select_box">
-                  <PositionList />
+                  <PositionList refValue={positionInput} />
                 </div>
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">

@@ -2,10 +2,10 @@ import { useCallback, useEffect } from "react";
 import usePositionList from "../hooks/usePositionList";
 
 export function PositionItem({ id, title, description }: any) {
-  return <option>{title}</option>;
+  return <option value={id}>{title}</option>;
 }
 
-export default function PositionList() {
+export default function PositionList({refValue} : any) {
   const positions = usePositionList();
 
   const displayPosition = useCallback(() => {
@@ -32,7 +32,7 @@ export default function PositionList() {
   return (
     <>
       <label>job position</label>
-      <select className="react-select">{displayPosition()}</select>
+      <select className="react-select" ref={refValue}>{displayPosition()}</select>
     </>
   );
 }
