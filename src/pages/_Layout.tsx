@@ -6,6 +6,7 @@ import Navigation from "../components/Navigation";
 declare global {
   interface Window {
     refreshSelect(): void;
+    buildSlider(): void;
   }
 }
 
@@ -14,6 +15,7 @@ export default function Layout() {
 
   useEffect(() => {
     window.refreshSelect();
+    window.buildSlider();
   }, [location]);
 
   return (
