@@ -1,13 +1,13 @@
 import axios from "axios";
 
-const upsertJobAPI = async (token: string, data: any) => {
+const upsertJobAPI = async (token: string | null, data: any) => {
   var config = {
     method: "post",
     url: "http://localhost:7000/api/job/upsert",
     headers: {
       Authorization: `Bearer ${token}`,
     },
-    data: JSON.stringify(data),
+    data: data,
   };
 
   const response = await axios(config);

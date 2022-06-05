@@ -1,8 +1,10 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import useProfile from "../../../hooks/useProfile";
 
 export default function CompanyDashboard() {
   const profile = useProfile();
+  const location = useLocation();
 
   return (
     <>
@@ -46,10 +48,10 @@ export default function CompanyDashboard() {
                 <div className="emp_follow_link jb_cover">
                   <ul className="feedlist">
                     <li>
-                      <a href="comp_company_page.html" className="link_active">
+                      <Link to="/dashboard" className={location.pathname.match(/\/dashboard$/g) ? "link_active" : ""}>
                         <i className="fas fa-file" />
                         company page{" "}
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a href="comp_employer_manage_jobs.html">
@@ -64,10 +66,10 @@ export default function CompanyDashboard() {
                       </a>
                     </li>
                     <li>
-                      <a href="comp_post_new_job.html">
+                      <Link to="post_new_job" className={location.pathname.match(/\/post_new_job$/g) ? "link_active" : ""}>
                         <i className="fas fa-user-plus" />
                         post new job
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <ul className="feedlist logout_link jb_cover">
