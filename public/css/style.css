@@ -4050,17 +4050,17 @@ a:hover {
   line-height: 30px;
 }
 
-.job_listing_grid_wrapper .jp_job_post_right_btn_wrapper ul {
+.job_listing_grid_wrapper .g_jp_job_post_right_btn_wrapper ul {
   float: left;
   margin-top: 15px;
 }
 
-.job_listing_grid_wrapper .jp_job_post_right_btn_wrapper li:nth-child(2) {
+.job_listing_grid_wrapper .g_jp_job_post_right_btn_wrapper li:nth-child(2) {
   float: left;
   margin-left: 12px;
 }
 
-.job_listing_grid_wrapper .jp_job_post_right_btn_wrapper li:last-child {
+.job_listing_grid_wrapper .g_jp_job_post_right_btn_wrapper li:last-child {
   margin-top: 6px;
   margin-left: 15px;
 }
@@ -4080,21 +4080,21 @@ a:hover {
   float: left;
 }
 
-.jp_job_post_right_btn_wrapper ul {
+.g_jp_job_post_right_btn_wrapper ul {
   float: right;
 }
 
-.jp_job_post_right_btn_wrapper li {
+.g_jp_job_post_right_btn_wrapper li {
   float: left;
   margin-left: 20px;
   margin-top: 5px;
 }
 
-.jp_job_post_right_btn_wrapper li:first-child {
+.g_jp_job_post_right_btn_wrapper li:first-child {
   margin-left: 0;
 }
 
-.jp_job_post_right_btn_wrapper li:nth-child(2) a::before {
+.g_jp_job_post_right_btn_wrapper li:nth-child(2) a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -4114,7 +4114,7 @@ a:hover {
   transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 
-.jp_job_post_right_btn_wrapper li:nth-child(2) a:hover {
+.g_jp_job_post_right_btn_wrapper li:nth-child(2) a:hover {
   background-color: transparent;
   color: #fff;
   -webkit-transition: all 0.6s;
@@ -4124,8 +4124,8 @@ a:hover {
   transition: all 0.6s;
 }
 
-.jp_job_post_right_btn_wrapper li:nth-child(2) a:hover::before,
-.jp_job_post_right_btn_wrapper li:last-child a:hover::before {
+.g_jp_job_post_right_btn_wrapper li:nth-child(2) a:hover::before,
+.g_jp_job_post_right_btn_wrapper li:last-child a:hover::before {
   -webkit-transform: scale3d(1, 1, 1);
   transform: scale3d(1, 1, 1);
   opacity: 1;
@@ -4136,12 +4136,12 @@ a:hover {
   transition: all 0.6s;
 }
 
-.jp_job_post_right_btn_wrapper li:nth-child(2) {
+.g_jp_job_post_right_btn_wrapper li:nth-child(2) {
   float: none;
   margin-left: 50px;
 }
 
-.jp_job_post_right_btn_wrapper li:nth-child(2) a {
+.g_jp_job_post_right_btn_wrapper li:nth-child(2) a {
   width: 100px;
   height: 35px;
   background: #fff;
@@ -4166,13 +4166,13 @@ a:hover {
   transition: all 0.6s;
 }
 
-.jp_job_post_right_btn_wrapper li:last-child {
+.g_jp_job_post_right_btn_wrapper li:last-child {
   margin-left: 50px;
   margin-top: 12px;
   float: left;
 }
 
-.jp_job_post_right_btn_wrapper li:last-child a {
+.g_jp_job_post_right_btn_wrapper li:last-child a {
   width: 100px;
   height: 35px;
   background: #ff3366;
@@ -4197,7 +4197,7 @@ a:hover {
   transition: all 0.6s;
 }
 
-.jp_job_post_right_btn_wrapper li:last-child a::before {
+.g_jp_job_post_right_btn_wrapper li:last-child a::before {
   content: "";
   position: absolute;
   top: 0;
@@ -4216,7 +4216,7 @@ a:hover {
   transition-timing-function: cubic-bezier(0.75, 0, 0.125, 1);
 }
 
-.jp_job_post_right_btn_wrapper li:last-child a:hover {
+.g_jp_job_post_right_btn_wrapper li:last-child a:hover {
   background-color: transparent;
   color: #ff3366;
   -webkit-transition: all 0.6s;

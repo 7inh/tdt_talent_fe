@@ -1,7 +1,7 @@
 import { useCallback } from "react";
 import useJobList from "../hooks/useJobList";
 
-export function JobItem({ title, employment_type, salary, location}: any) {
+export function JobItem({ title, employment_type, salary, location }: any) {
   return (
     <div className="col-lg-12 col-md-12 col-sm-12 col-12">
       <div className="job_listing_left_fullwidth jb_cover">
@@ -16,23 +16,20 @@ export function JobItem({ title, employment_type, salary, location}: any) {
                 <a href="#0">{title}</a>
               </h4>
               <ul>
+                <li></li>
                 <li>
-                  <i className="flaticon-cash"/>
-                    <h4>
-                      <a href="#0">{salary} $ </a>
-                    </h4>
+                  <i className="flaticon-cash" />
+                  &nbsp; {salary} millions VND
                 </li>
-                <li>
+                <li className="centroid">
                   <i className="flaticon-location-pointer" />
-                    <h4>
-                      <a href="#0">{location}</a>
-                    </h4>
+                  &nbsp; {location}
                 </li>
               </ul>
             </div>
           </div>
           <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-            <div className="jp_job_post_right_btn_wrapper">
+            <div className="g_jp_job_post_right_btn_wrapper">
               <ul>
                 <li>
                   <div className="job_adds_right">
@@ -134,8 +131,8 @@ export default function JobList() {
               key={i}
               title={job.title}
               employment_type={job.employment_type}
-              salary = {job.salary}
-              location = {job.location}
+              salary={job.salary}
+              location={job.location}
             />
           );
         })}
@@ -298,7 +295,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -423,7 +420,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -548,7 +545,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -671,7 +668,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -794,7 +791,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -919,7 +916,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -1042,7 +1039,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -1167,7 +1164,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -1290,7 +1287,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -1415,7 +1412,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -1538,7 +1535,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
@@ -1661,7 +1658,7 @@ export default function JobList() {
                             </div>
                           </div>
                           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                            <div className="jp_job_post_right_btn_wrapper jb_cover">
+                            <div className="g_jp_job_post_right_btn_wrapper jb_cover">
                               <ul>
                                 <li>
                                   <div className="job_adds_right">
