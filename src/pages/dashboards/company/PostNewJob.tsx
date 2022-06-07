@@ -17,9 +17,10 @@ export default function PostNewJob() {
   const salaryInput = useRef<HTMLInputElement>(null);
   const experienceInput = useRef<HTMLInputElement>(null);
   const candidateLimitInput = useRef<HTMLInputElement>(null);
+  const expireTimeInput = useRef<HTMLInputElement>(null);
 
   const handleCreateJob = async () => {
-    // setBtnState(false);
+    setBtnState(false);
     const payload = {
       job: {
         title: titleInput.current?.value,
@@ -30,10 +31,15 @@ export default function PostNewJob() {
         experience_requirement: experienceInput.current?.value,
         employment_type: employmentTypeInput.current?.value,
         candidate_limit: candidateLimitInput.current?.value,
+        expire_date: expireTimeInput.current?.value,
       },
     };
-    await upsertJobAPI(token, payload);
-    // setBtnState(true);
+    try {
+      await upsertJobAPI(token, payload);
+    } catch (e) {
+      alert(e);
+    }
+    setBtnState(true);
   };
 
   return (
@@ -57,11 +63,6 @@ export default function PostNewJob() {
                 </div>
               </div>
               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div className="dashboard_select_box">
-                  <PositionList refValue={positionInput} />
-                </div>
-              </div>
-              <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                 <div className="dashboard_contect_form3">
                   <label>location</label>
                   <input
@@ -70,6 +71,11 @@ export default function PostNewJob() {
                     name="name"
                     placeholder="Street, District, City"
                   />
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div className="dashboard_select_box">
+                  <PositionList refValue={positionInput} />
                 </div>
               </div>
               <div className="col-lg-6 col-md-6 col-sm-12 col-12">
@@ -89,6 +95,7 @@ export default function PostNewJob() {
                     ref={salaryInput}
                     type="number"
                     name="name"
+                    step="0.1"
                     placeholder="23 millions VND"
                   />
                 </div>
@@ -111,6 +118,18 @@ export default function PostNewJob() {
                   <input
                     ref={candidateLimitInput}
                     type="number"
+                    name="name"
+                    placeholder="5 candidates"
+                  />
+                </div>
+              </div>
+              <div className="col-lg-6 col-md-6 col-sm-12 col-12">
+                <div className="dashboard_contect_form3">
+                  <label>expire time</label>
+                  <input
+                    style={{ paddingRight: 12 }}
+                    ref={expireTimeInput}
+                    type="date"
                     name="name"
                     placeholder="5 candidates"
                   />

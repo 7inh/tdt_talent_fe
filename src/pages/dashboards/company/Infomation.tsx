@@ -37,7 +37,7 @@ export default function Information() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>company name :</p>
+                                <p>company name</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -55,7 +55,7 @@ export default function Information() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>location :</p>
+                                <p>location</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -73,7 +73,7 @@ export default function Information() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>phone :</p>
+                                <p>phone</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -91,7 +91,7 @@ export default function Information() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>email :</p>
+                                <p>email</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -109,7 +109,7 @@ export default function Information() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>Country :</p>
+                                <p>Country</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -127,7 +127,7 @@ export default function Information() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>website :</p>
+                                <p>website</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -142,7 +142,7 @@ export default function Information() {
                           </div>
                         </div>
                         <div className="padder_top jb_cover" />
-                        <div className="header_btn search_btn applt_pop_btn">
+                        <div className="header_btn search_btn dashboard_applt_pop_btn">
                           <a href="#0">save updates</a>
                         </div>
                         <div className="cancel_wrapper">
@@ -177,7 +177,7 @@ export default function Information() {
                   </div>
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
-                      <li>Location:</li>
+                      <li>Location</li>
                       <li>{profile.address}</li>
                     </ul>
                   </div>
@@ -188,7 +188,7 @@ export default function Information() {
                   </div>
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
-                      <li>Hotline::</li>
+                      <li>Hotline</li>
                       <li>{profile.phone_number}</li>
                     </ul>
                   </div>
@@ -201,7 +201,7 @@ export default function Information() {
                   </div>
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
-                      <li>email:</li>
+                      <li>email</li>
                       <li>
                         <a href="#0">{profile.contact_mail}</a>
                       </li>
@@ -225,7 +225,7 @@ export default function Information() {
                   </div>
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
-                      <li>website:</li>
+                      <li>website</li>
                       <li>
                         <a href="#0">{profile.website}</a>
                       </li>
@@ -269,7 +269,7 @@ export default function Information() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>write yourself:</p>
+                                <p>about us</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
@@ -286,7 +286,7 @@ export default function Information() {
                           </div>
                         </div>
                         <div className="padder_top jb_cover" />
-                        <div className="header_btn search_btn applt_pop_btn">
+                        <div className="header_btn search_btn dashboard_applt_pop_btn">
                           <a href="#0">save updates</a>
                         </div>
                         <div className="cancel_wrapper">
