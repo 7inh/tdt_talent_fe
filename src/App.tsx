@@ -13,6 +13,7 @@ import { useSelector } from "react-redux";
 import { selectLogin } from "./features/login/loginSlice";
 import Information from "./pages/dashboards/company/Infomation";
 import PostNewJob from "./pages/dashboards/company/PostNewJob";
+import JobDetail from "./pages/JobDetail";
 
 export default function App() {
   const { user } = useSelector(selectLogin);
@@ -26,6 +27,7 @@ export default function App() {
           <Route path="contact" element={<Contact />} />
           <Route path="about" element={<About />} />
           <Route path="jobs" element={<Job />} />
+          <Route path="job" element={<JobDetail />} />
           <Route path="companies" element={<Company />}></Route>
           <Route path="dashboard/*" element={<Dashboard />}>
             <Route index element={<Information />} />
