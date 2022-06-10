@@ -1,4 +1,16 @@
-export default function JobDetail () {
+import { useParams } from "react-router-dom";
+import useJobDetail from "../hooks/useJobDetail";
+
+export default function JobDetail() {
+  let { id: jobId } = useParams();
+
+  if (!jobId) throw new Error("page not found");
+
+  const job = useJobDetail(parseInt(jobId));
+
+  if (!job) throw new Error("page not found");
+  console.log(`jobjobjobjobjob`, job);
+
   return (
     <div className="job_single_wrapper jb_cover">
       <div className="container">
@@ -10,9 +22,9 @@ export default function JobDetail () {
               </div>
               <div className="job_overview_header jb_cover">
                 <div className="jb_job_overview_img">
-                  <img src="images/overview.png" alt="post_img" />
-                  <h4>HTML Developer (1 - 2 Yrs Exp.)</h4>
-                  <p>Webstrot Technology Pvt. Ltd.</p>
+                  <img src="/images/overview.png" alt="post_img" />
+                  <h4>{job.title}</h4>
+                  <p>{job.company_name}</p>
                   <ul className="job_single_lists">
                     <li>
                       <div className="job_adds_right">
@@ -23,7 +35,7 @@ export default function JobDetail () {
                     </li>
                     <li>
                       <div className="header_btn search_btn part_time_btn jb_cover">
-                        <a href="#">part time</a>
+                        <a href="#0">{job.employment_type}</a>
                       </div>
                     </li>
                   </ul>
@@ -35,21 +47,23 @@ export default function JobDetail () {
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
                       <li>Date Posted:</li>
-                      <li>Octomber 02, 2019</li>
+                      <li>{new Date(job.created_at).toDateString()}</li>
                     </ul>
                   </div>
                 </div>
-                <div className="jp_listing_overview_list_main_wrapper jb_cover">
-                  <div className="jp_listing_list_icon">
-                    <i className="far fa-calendar" />
+                {job.expire_date && (
+                  <div className="jp_listing_overview_list_main_wrapper jb_cover">
+                    <div className="jp_listing_list_icon">
+                      <i className="far fa-calendar" />
+                    </div>
+                    <div className="jp_listing_list_icon_cont_wrapper">
+                      <ul>
+                        <li>Expire date:</li>
+                        <li>{new Date(job.expire_date).toDateString()}</li>
+                      </ul>
+                    </div>
                   </div>
-                  <div className="jp_listing_list_icon_cont_wrapper">
-                    <ul>
-                      <li>Expire date:</li>
-                      <li>Octomber 02, 2019</li>
-                    </ul>
-                  </div>
-                </div>
+                )}
                 <div className="jp_listing_overview_list_main_wrapper jb_cover">
                   <div className="jp_listing_list_icon">
                     <i className="fas fa-map-marker-alt" />
@@ -57,7 +71,7 @@ export default function JobDetail () {
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
                       <li>Location:</li>
-                      <li>Los Angeles Califonia PO, 455001</li>
+                      <li>{job.location}</li>
                     </ul>
                   </div>
                 </div>
@@ -68,7 +82,7 @@ export default function JobDetail () {
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
                       <li>Salary:</li>
-                      <li>$12K - 15k P.A.</li>
+                      <li>{job.salary} millions VND</li>
                     </ul>
                   </div>
                 </div>
@@ -79,7 +93,7 @@ export default function JobDetail () {
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
                       <li>Category:</li>
-                      <li>Developer</li>
+                      <li>{job.position}</li>
                     </ul>
                   </div>
                 </div>
@@ -90,12 +104,12 @@ export default function JobDetail () {
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
                       <li>Experience:</li>
-                      <li>1+ Years Experience</li>
+                      <li>{job.experience_requirement}+ years experience</li>
                     </ul>
                   </div>
                 </div>
                 <div className="header_btn search_btn news_btn overview_btn  jb_cover">
-                  <a href="#" data-toggle="modal" data-target="#myModal41">
+                  <a href="#0" data-toggle="modal" data-target="#myModal41">
                     apply now !
                   </a>
                 </div>
@@ -149,18 +163,11 @@ export default function JobDetail () {
                                     className="dropify"
                                     data-height={90}
                                   />
-                                  <span className="post_photo">
-                                    upload resume
-                                  </span>
                                 </div>
-                                <p className="word_file">
-                                  {" "}
-                                  microsoft word or pdf file only (5mb)
-                                </p>
                               </div>
                             </div>
                             <div className="header_btn search_btn applt_pop_btn jb_cover">
-                              <a href="#">apply now</a>
+                              <a href="#0">apply now</a>
                             </div>
                           </div>
                         </div>
@@ -173,19 +180,21 @@ export default function JobDetail () {
           </div>
           <div className="col-lg-8 col-md-12 col-sm-12 col-12">
             <div className="jb_listing_single_overview jb_cover">
+              <h2
+                className="job_filter_sidebar_heading jb_cover"
+                style={{ color: "#fafafa" }}
+              >
+                Job Description
+              </h2>
+
               <div className="jp_job_des jb_cover">
-                <h2 className="job_description_heading">Job Description</h2>
-                <p>
-                  Google is and always will be an engineering company. We hire
-                  people with a broad set of ical skills who are ready to tackle
-                  some of technology's greatest challenges and make an impact on
-                  millions, if not billions, of users. At Google, engineers not
-                  only revolutionize search, they routinely work on massive
-                  scalability and storage solutions, large-scale applications
-                  and rely new platforms for developers around the world. From
-                  AdWords to Chrome, Android to Ye, Social to Local, Google
-                  engineers are changing the world.
-                </p>
+                  {
+                    <div
+                      dangerouslySetInnerHTML={{
+                        __html: job.description,
+                      }}
+                    />
+                  }
               </div>
             </div>
           </div>
