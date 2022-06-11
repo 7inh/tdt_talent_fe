@@ -1,7 +1,8 @@
 import { useCallback } from "react";
+import { Link } from "react-router-dom";
 import useJobList from "../hooks/useJobList";
 
-export function JobItem({ title, employment_type, salary, location }: any) {
+export function JobItem({ id, title, employment_type, salary, location }: any) {
   return (
     <div className="col-lg-12 col-md-12 col-sm-12 col-12">
       <div className="job_listing_left_fullwidth jb_cover">
@@ -13,7 +14,7 @@ export function JobItem({ title, employment_type, salary, location }: any) {
             </div>
             <div className="jp_job_post_right_cont">
               <h4>
-                <a href="#0">{title}</a>
+                <Link to={"/job/" + id}>{title}</Link>
               </h4>
               <ul>
                 <li></li>
@@ -129,6 +130,7 @@ export default function JobList() {
           return (
             <JobItem
               key={i}
+              id={job.id}
               title={job.title}
               employment_type={job.employment_type}
               salary={job.salary}
