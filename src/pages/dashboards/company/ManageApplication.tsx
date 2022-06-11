@@ -90,6 +90,37 @@ export default function ManageApplication() {
                 </div>
 
 
+                <div className="blog_pagination_section jb_cover">
+                  <ul>
+                    <li>
+                      <a href="#0" className="prev">
+                        {" "}
+                        <i className="flaticon-left-arrow" />{" "}
+                      </a>
+                    </li>
+                    <li>
+                      <a href="#0">1</a>
+                    </li>
+                    <li className="third_pagger">
+                      <a href="#0">2</a>
+                    </li>
+                    <li className="d-block d-sm-block d-md-block d-lg-block">
+                      <a href="#0">3</a>
+                    </li>
+                    <li className="d-none d-sm-block d-md-block d-lg-block">
+                      <a href="#0">...</a>
+                    </li>
+                    <li className="d-none d-sm-block d-md-block d-lg-block">
+                      <a href="#0">6</a>
+                    </li>
+                    <li>
+                      <a href="#0" className="next">
+                        {" "}
+                        <i className="flaticon-right-arrow" />{" "}
+                      </a>
+                    </li>
+                  </ul>
+                </div>
 
 
               </div>
