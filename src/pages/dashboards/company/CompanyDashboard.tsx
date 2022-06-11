@@ -48,25 +48,53 @@ export default function CompanyDashboard() {
                 <div className="emp_follow_link jb_cover">
                   <ul className="feedlist">
                     <li>
-                      <Link to="/dashboard" className={location.pathname.match(/\/dashboard$/g) ? "link_active" : ""}>
+                      <Link
+                        to="/dashboard"
+                        className={
+                          location.pathname.match(/\/dashboard$/g)
+                            ? "link_active"
+                            : ""
+                        }
+                      >
                         <i className="fas fa-file" />
                         company page{" "}
                       </Link>
                     </li>
                     <li>
-                      <a href="comp_employer_manage_jobs.html">
+                      <Link
+                        to="manage_job"
+                        className={
+                          location.pathname.match(/\/manage_job$/g)
+                            ? "link_active"
+                            : ""
+                        }
+                      >
                         <i className="fas fa-suitcase" />
                         manage jobs
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <a href="comp_applications.html">
+                      <Link
+                        to="manage_application"
+                        className={
+                          location.pathname.match(/\/manage_application$/g)
+                            ? "link_active"
+                            : ""
+                        }
+                      >
                         <i className="fas fa-mobile" />
                         applications
-                      </a>
+                      </Link>
                     </li>
                     <li>
-                      <Link to="post_new_job" className={location.pathname.match(/\/post_new_job$/g) ? "link_active" : ""}>
+                      <Link
+                        to="post_new_job"
+                        className={
+                          location.pathname.match(/\/post_new_job$/g)
+                            ? "link_active"
+                            : ""
+                        }
+                      >
                         <i className="fas fa-user-plus" />
                         post new job
                       </Link>

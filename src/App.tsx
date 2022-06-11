@@ -14,6 +14,8 @@ import { selectLogin } from "./features/login/loginSlice";
 import Information from "./pages/dashboards/company/Infomation";
 import PostNewJob from "./pages/dashboards/company/PostNewJob";
 import JobDetail from "./pages/JobDetail";
+import ManageJob from "./pages/dashboards/company/ManageJob";
+import ManageApplication from "./pages/dashboards/company/ManageApplication";
 
 export default function App() {
   const { user } = useSelector(selectLogin);
@@ -30,8 +32,14 @@ export default function App() {
           <Route path="job/:id" element={<JobDetail />} />
           <Route path="companies" element={<Company />}></Route>
           <Route path="dashboard/*" element={<Dashboard />}>
-            <Route index element={<Information />} />
-            <Route path="post_new_job" element={<PostNewJob />} />
+            {user.role === "company" && (
+              <>
+                <Route index element={<Information />} />
+                <Route path="post_new_job" element={<PostNewJob />} />
+                <Route path="manage_job" element={<ManageJob />} />
+                <Route path="manage_application" element={<ManageApplication />} />
+              </>
+            )}
           </Route>
         </Route>
         <Route path="*" element={<Notfound />} />
