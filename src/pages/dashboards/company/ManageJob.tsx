@@ -1,4 +1,59 @@
+import { useCallback } from "react";
+import useJobListByCompany from "../../../hooks/useJobListByCompany";
+
 export default function ManageJob() {
+  const jobs = useJobListByCompany();
+
+  const displayJobList = useCallback(() => {
+    return (
+      <>
+        {jobs.map((job, key) => {
+          return (
+            <div className="dashboard_latest_job_box jb_cover" key={key}>
+              <div className="dashboard_job_list">
+                <h6>
+                  <a href="#0">{job.title}</a>
+                </h6>
+                <p>
+                  {" "}
+                  <i className="far fa-calendar" />{" "}
+                  {new Date(job.created_at).toDateString()}
+                </p>
+              </div>
+              <div className="dashboard_job_list_next">
+                <p>
+                  <a href="#0">{job.total ? job.total : "0"} applications</a>
+                </p>
+              </div>
+              <div className="dashboard_job_list_next">
+                <p className="gn">{job.state}</p>
+              </div>
+              <div className="dashboard_job_list_next">
+                <ul>
+                  <li>
+                    <a href="#0">
+                      <i className="fas fa-eye" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0" data-toggle="modal" data-target="#myModal1">
+                      <i className="fas fa-edit" />
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <i className="fas fa-trash-alt" />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          );
+        })}
+      </>
+    );
+  }, [jobs]);
+
   return (
     <>
       <div
@@ -136,49 +191,9 @@ export default function ManageJob() {
                     <h6>action</h6>
                   </div>
                 </div>
-                <div className="dashboard_latest_job_box jb_cover">
-                  <div className="dashboard_job_list">
-                    <h6>
-                      <a href="#0">General Ledger Accountant</a>
-                    </h6>
-                    <p>
-                      {" "}
-                      <i className="far fa-calendar" /> Date Posted : 02 Oct
-                      2017
-                    </p>
-                  </div>
-                  <div className="dashboard_job_list_next">
-                    <p>
-                      <a href="#0">06 Applications</a>
-                    </p>
-                  </div>
-                  <div className="dashboard_job_list_next">
-                    <p className="gn">active</p>
-                  </div>
-                  <div className="dashboard_job_list_next">
-                    <ul>
-                      <li>
-                        <a href="#0">
-                          <i className="fas fa-eye" />
-                        </a>
-                      </li>
-                      <li>
-                        <a
-                          href="#0"
-                          data-toggle="modal"
-                          data-target="#myModal1"
-                        >
-                          <i className="fas fa-edit" />
-                        </a>
-                      </li>
-                      <li>
-                        <a href="#0">
-                          <i className="fas fa-trash-alt" />
-                        </a>
-                      </li>
-                    </ul>
-                  </div>
-                </div>
+
+                {displayJobList()}
+
                 <div className="blog_pagination_section jb_cover">
                   <ul>
                     <li>
