@@ -371,7 +371,6 @@ a:hover {
 
 .header_btn ul {
   display: inline-block;
-  padding-top: 5px;
 }
 
 .header_btn li:last-child a {
@@ -3123,7 +3122,6 @@ a:hover {
 .jb_job_post_right_btn_wrapper li {
   float: left;
   margin-left: 20px;
-  margin-top: 5px;
 }
 
 .jb_job_post_right_btn_wrapper li:first-child {
