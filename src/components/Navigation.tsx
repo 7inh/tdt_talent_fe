@@ -52,7 +52,14 @@ export default function Navigation() {
             </Link>
           </li>
           <li>
-            <Link to="/companies">companies</Link>
+            <Link
+              to="/companies"
+              className={`gc_main_navigation ${
+                location.pathname.match(/^\/companies/g) ? "active_class" : ""
+              }`}
+            >
+              companies
+            </Link>
           </li>
           <li>
             <Link
@@ -182,7 +189,16 @@ export default function Navigation() {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/companies">companies</Link>
+                  <Link
+                    to="/companies"
+                    className={`gc_main_navigation ${
+                      location.pathname.match(/^\/companies/g)
+                        ? "active_class"
+                        : ""
+                    }`}
+                  >
+                    companies
+                  </Link>
                 </li>
                 <li>
                   <Link

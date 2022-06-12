@@ -31,7 +31,7 @@ export default function Information() {
                       <div className="delett_cntn jb_cover">
                         <h1>
                           <i className="fas fa-edit" />
-                          about us
+                          about 
                         </h1>
                         <div className="category_wrapper jb_cover">
                           <div className="row">
@@ -241,7 +241,7 @@ export default function Information() {
         <div className="job_filter_category_sidebar company_wrapper jb_cover">
           <div className="job_filter_sidebar_heading jb_cover">
             <h1>
-              about us{" "}
+              about 
               <span>
                 <a href="#0" data-toggle="modal" data-target="#myModal2">
                   <i className="fas fa-edit" />

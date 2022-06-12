@@ -1,8 +1,10 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
+import { Link } from "react-router-dom";
 import useProfile from "../../../hooks/useProfile";
 
 export default function CandidateDashBoard() {
   const profile = useProfile();
+  const location = useLocation();
 
   return (
     <>
@@ -45,10 +47,17 @@ export default function CandidateDashBoard() {
                 <div className="emp_follow_link jb_cover">
                   <ul className="feedlist">
                     <li>
-                      <a href="candidate_resume.html" className="link_active">
+                      <Link
+                        to="resume"
+                        className={
+                          location.pathname.match(/\/resume$/g)
+                            ? "link_active"
+                            : ""
+                        }
+                      >
                         <i className="fas fa-file" />
                         resume
-                      </a>
+                      </Link>
                     </li>
                     <li>
                       <a href="candidate_favourite_job.html">
@@ -57,10 +66,17 @@ export default function CandidateDashBoard() {
                       </a>
                     </li>
                     <li>
-                      <a href="candidate_applied_job.html">
+                      <Link
+                        to="applied_job"
+                        className={
+                          location.pathname.match(/\/applied_job$/g)
+                            ? "link_active"
+                            : ""
+                        }
+                      >
                         <i className="fas fa-check-square" />
                         applied job
-                      </a>
+                      </Link>
                     </li>
                   </ul>
                   <ul className="feedlist logout_link jb_cover">

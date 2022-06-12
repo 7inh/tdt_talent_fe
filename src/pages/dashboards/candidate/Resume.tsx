@@ -323,7 +323,7 @@ export default function Resume() {
                       <div className="delett_cntn jb_cover">
                         <h1>
                           <i className="fas fa-edit" />
-                          about us
+                          about 
                         </h1>
                         <div className="category_wrapper jb_cover">
                           <div className="row">
