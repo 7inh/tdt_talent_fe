@@ -7,7 +7,12 @@ const useJobList = () => {
   const [jobs, setJobs] = useState([
     {
       title: "",
+      company_name: "",
+      company_avatar: "",
       employment_type: "",
+      created_at: "",
+      location: "",
+      position: "",
     },
   ]);
 

@@ -1,19 +1,23 @@
 import { useCallback } from "react";
 import useJobList from "../../../hooks/useJobList";
 
-export default function ManageJob() {
-  const applications = useJobList();
+export default function AdminManageJob() {
+  const jobs = useJobList();
 
   const displayAccountList = useCallback(() => {
     return (
       <>
-        {applications.map((application, key) => {
+        {jobs.map((job, key) => {
           return (
             <div className="dashboard_latest_job_box jb_cover" key={key}>
               <div className="dashboard_job_list" style={{ width: "470px" }}>
                 <div style={{ display: "flex" }}>
                   <div>
-                    <img src={"/images/rs1.jpg"} alt="post_img" />
+                    <img
+                      src={job.company_avatar || "/images/rs1.jpg"}
+                      alt="post_img"
+                      style={{ width: "80px", height: "80px" }}
+                    />
                   </div>
                   <div style={{ margin: "0 10px 0 10px" }}>
                     <a
@@ -24,37 +28,22 @@ export default function ManageJob() {
                         color: "#222222",
                       }}
                     >
-                      application.candidate_name
+                      {job.title}
                     </a>
 
                     <div style={{ color: "#ff3366" }}>
                       <i className="flaticon-location-pointer" />
-                      &nbsp; application.candidate_address
+                      &nbsp; {job.company_name}
                     </div>
                     <div style={{ color: "#ff3366" }}>
                       <i className="fas fa-suitcase" />
-                      &nbsp; Senior UX asd asda sda sd
+                      &nbsp; {job.position}
                     </div>
                   </div>
                 </div>
               </div>
               <div className="dashboard_job_list_next">
-                <div className="header_btn download_btn_wrapper jb_cover">
-                  <ul>
-                    <li>
-                      <a
-                        href="#0"
-                        style={{
-                          width: " fit-content",
-                          padding: "0 10px 0 10px",
-                        }}
-                      >
-                        <i className="fas fa-file-download" />
-                        download
-                      </a>
-                    </li>
-                  </ul>
-                </div>
+                {new Date(job.created_at).toDateString()}
               </div>
               <div className="dashboard_job_list_next">
                 <div className="jb_job_post_right_btn_wrapper">
@@ -79,7 +68,7 @@ export default function ManageJob() {
         })}
       </>
     );
-  }, [applications]);
+  }, [jobs]);
 
   return (
     <>
@@ -93,10 +82,10 @@ export default function ManageJob() {
                     className="dashboard_job_list mange_list"
                     style={{ width: "470px" }}
                   >
-                    <h6>Candidate</h6>
+                    <h6>Company</h6>
                   </div>
                   <div className="dashboard_job_list_next mange_list">
-                    <h6>Resume</h6>
+                    <h6>Created at</h6>
                   </div>
                   <div className="dashboard_job_list_next mange_list">
                     <h6>action</h6>

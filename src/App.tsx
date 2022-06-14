@@ -19,6 +19,7 @@ import ManageApplication from "./pages/dashboards/company/ManageApplication";
 import Resume from "./pages/dashboards/candidate/Resume";
 import AppliedJob from "./pages/dashboards/candidate/AppliedJob";
 import ManageAccount from "./pages/dashboards/admin/ManageAccount";
+import AdminManageJob from "./pages/dashboards/admin/AdminManageJob";
 
 export default function App() {
   const { user } = useSelector(selectLogin);
@@ -38,6 +39,7 @@ export default function App() {
             {user.role === "admin" && (
               <>
                 <Route index element={<ManageAccount />} />
+                <Route path="manage_job" element={<AdminManageJob />} />
               </>
             )}
             {user.role === "company" && (
