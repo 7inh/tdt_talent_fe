@@ -1,8 +1,19 @@
-import { useCallback } from "react";
+import { useCallback, useRef, useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+import applyJob from "../features/application/applyJob";
+import { selectLogin } from "../features/login/loginSlice";
 import useJobList from "../hooks/useJobList";
 
-export function JobItem({ id, title, employment_type, salary, location }: any) {
+export function JobItem({
+  id,
+  title,
+  employment_type,
+  salary,
+  location,
+  company_id,
+  handleApplyJob,
+}: any) {
   return (
     <div className="col-lg-12 col-md-12 col-sm-12 col-12">
       <div className="job_listing_left_fullwidth jb_cover">
@@ -44,74 +55,16 @@ export function JobItem({ id, title, employment_type, salary, location }: any) {
                 </li>
                 <li>
                   {" "}
-                  <a href="#0" data-toggle="modal" data-target="#myModal2">
+                  <a
+                    href="#0"
+                    data-toggle="modal"
+                    data-target="#myModal2"
+                    onClick={() => handleApplyJob(id, company_id)}
+                  >
                     apply
                   </a>
                 </li>
               </ul>
-            </div>
-            <div
-              className="modal fade apply_job_popup"
-              id="myModal2"
-              role="dialog"
-            >
-              <div className="modal-dialog">
-                <div className="modal-content">
-                  <button type="button" className="close" data-dismiss="modal">
-                    ×
-                  </button>
-                  <div className="row">
-                    <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                      <div className="apply_job jb_cover">
-                        <h1>apply for this job :</h1>
-                        <div className="search_alert_box jb_cover">
-                          <div className="apply_job_form">
-                            <input
-                              type="text"
-                              name="name"
-                              placeholder="full name"
-                            />
-                          </div>
-                          <div className="apply_job_form">
-                            <input
-                              type="text"
-                              name="Email"
-                              placeholder="Enter Your Email"
-                            />
-                          </div>
-                          <div className="apply_job_form">
-                            <textarea
-                              className="form-control"
-                              name="message"
-                              placeholder="Message"
-                              defaultValue={""}
-                            />
-                          </div>
-                          <div className="resume_optional jb_cover">
-                            <p>resume (optional)</p>
-                            <div className="width_50">
-                              <input
-                                type="file"
-                                id="input-file-now-custom-2"
-                                className="dropify"
-                                data-height={90}
-                              />
-                              <span className="post_photo">upload resume</span>
-                            </div>
-                            <p className="word_file">
-                              {" "}
-                              microsoft word or pdf file only (5mb)
-                            </p>
-                          </div>
-                        </div>
-                        <div className="header_btn search_btn applt_pop_btn jb_cover">
-                          <a href="#0">apply now</a>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -121,7 +74,35 @@ export function JobItem({ id, title, employment_type, salary, location }: any) {
 }
 
 export default function JobList() {
+  const { token } = useSelector(selectLogin);
+
   const jobs = useJobList();
+  const [jobId, setJobId] = useState("");
+  const [companyId, setCompanyId] = useState("");
+  const closeModelRef = useRef<HTMLButtonElement>(null);
+
+  const handleApplyJob = (job_id: string, company_id: string) => {
+    setJobId(job_id);
+    setCompanyId(company_id);
+  };
+
+  const submitApplication = async () => {
+    const payload = {
+      application: {
+        job_id: jobId,
+        company_id: companyId,
+      },
+    };
+
+    closeModelRef.current?.click();
+    
+    try {
+      await applyJob(token, payload);
+      alert("success apply");
+    } catch (e) {
+      alert(e);
+    }
+  };
 
   const displayJobs = useCallback(() => {
     return (
@@ -135,6 +116,8 @@ export default function JobList() {
               employment_type={job.employment_type}
               salary={job.salary}
               location={job.location}
+              company_id={job.company_id}
+              handleApplyJob={handleApplyJob}
             />
           );
         })}
@@ -1994,6 +1977,57 @@ export default function JobList() {
                     data-height={90}
                   />
                   <span className="post_photo">add resume</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div className="modal fade apply_job_popup" id="myModal2" role="dialog">
+        <div className="modal-dialog">
+          <div className="modal-content">
+            <button
+              type="button"
+              className="close"
+              data-dismiss="modal"
+              ref={closeModelRef}
+            >
+              ×
+            </button>
+            <div className="row">
+              <div className="col-lg-12 col-md-12 col-sm-12 col-12">
+                <div className="apply_job jb_cover">
+                  <h1>apply for this job :</h1>
+                  <div className="search_alert_box jb_cover">
+                    <p style={{ marginBottom: "10px" }}>
+                      Cover letter (optional)
+                    </p>
+                    <div className="apply_job_form">
+                      <textarea
+                        className="form-control"
+                        name="cover_letter"
+                        placeholder="..."
+                        defaultValue={""}
+                      />
+                    </div>
+                    <div className="resume_optional jb_cover">
+                      <p>resume (optional)</p>
+                      <div className="width_50">
+                        <input
+                          type="file"
+                          id="input-file-now-custom-2"
+                          className=""
+                          data-height={90}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="header_btn search_btn applt_pop_btn jb_cover">
+                    <a href="#0" onClick={submitApplication}>
+                      apply now
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
