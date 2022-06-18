@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const upsertJobAPI = async (token: string | null, data: any) => {
+const setJobState = async (token: string | null, data: any) => {
   var config = {
     method: "post",
-    url: "http://localhost:7000/api/job/upsert",
+    url: "http://localhost:7000/api/job/set_state",
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -14,4 +14,4 @@ const upsertJobAPI = async (token: string | null, data: any) => {
   return response.data;
 };
 
-export default upsertJobAPI;
+export default setJobState;

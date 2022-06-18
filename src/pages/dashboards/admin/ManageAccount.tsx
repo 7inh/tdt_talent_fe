@@ -180,7 +180,7 @@ export default function ManageAccount() {
               <div className="dashboard_latest_job_overlow">
                 <div className="manage_jobs_wrapper jb_cover">
                   <div className="dashboard_job_list_next mange_list" style={{textAlign: 'left'}}>
-                    <h6>applications</h6>
+                    <h6>Avatar</h6>
                   </div>
                   <div className="dashboard_job_list mange_list">
                     <h6>Account Info</h6>
@@ -203,10 +203,10 @@ export default function ManageAccount() {
                         <i className="flaticon-left-arrow" />{" "}
                       </a>
                     </li>
-                    <li>
+                    <li className="third_pagger">
                       <a href="#0">1</a>
                     </li>
-                    <li className="third_pagger">
+                    <li >
                       <a href="#0">2</a>
                     </li>
                     <li className="d-block d-sm-block d-md-block d-lg-block">

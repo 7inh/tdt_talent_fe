@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import PositionList from "../../../components/PositionList";
 import QuillBox from "../../../components/QuillBox";
-import upsertJobAPI from "../../../features/job/upsertJobAPI";
+import upsertJobAPI from "../../../features/job/upsertJob";
 import { selectLogin } from "../../../features/login/loginSlice";
 
 export default function PostNewJob() {

@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectLogin } from "../features/login/loginSlice";
 
-const useJobList = () => {
+const useJobListV2 = () => {
   const { token } = useSelector(selectLogin);
   const [jobs, setJobs] = useState([
     {
@@ -18,6 +18,7 @@ const useJobList = () => {
       state: "",
     },
   ]);
+  const [refresh, setRefresh] = useState(0);
 
   useEffect(() => {
     const getJobs = async () => {
@@ -32,15 +33,20 @@ const useJobList = () => {
       };
 
       const response = await axios(config);
-      console.log("response", response.data);
 
       setJobs(response.data);
     };
-
     getJobs();
-  }, [token]);
+  }, [token, refresh]);
 
-  return jobs;
+  const reload = () => {
+    setRefresh(refresh + 1);
+  };
+
+  return {
+    jobs,
+    reload,
+  };
 };
 
-export default useJobList;
+export default useJobListV2;
