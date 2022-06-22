@@ -76,24 +76,24 @@ export default function AdminManageJob() {
   const { token } = useSelector(selectLogin);
   const { jobs, reload } = useJobListV2();
 
-  const handleSetJobState = async (id: string, state: string) => {
-    const payload = {
-      job: {
-        state: state,
-        id: id,
-      },
+  const displayJobList = useCallback(() => {
+    const handleSetJobState = async (id: string, state: string) => {
+      const payload = {
+        job: {
+          state: state,
+          id: id,
+        },
+      };
+
+      try {
+        await setJobState(token, payload);
+        alert(state);
+        reload();
+      } catch (e) {
+        alert(e);
+      }
     };
 
-    try {
-      await setJobState(token, payload);
-      alert(state);
-      reload();
-    } catch (e) {
-      alert(e);
-    }
-  };
-
-  const displayJobList = useCallback(() => {
     return (
       <>
         {jobs.map((job, key) => {
@@ -114,7 +114,7 @@ export default function AdminManageJob() {
         })}
       </>
     );
-  }, [jobs]);
+  }, [jobs, reload, token]);
 
   return (
     <>

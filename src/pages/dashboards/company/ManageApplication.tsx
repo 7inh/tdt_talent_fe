@@ -1,85 +1,142 @@
 import { useCallback } from "react";
-import useApplicationListByCompany from "../../../hooks/useApplicationListByCompany";
+import { useSelector } from "react-redux";
+import setApplicationState from "../../../features/application/setApplicationState";
+import { selectLogin } from "../../../features/login/loginSlice";
+import useApplicationListByCompanyV2 from "../../../hooks/useApplicationListByCompanyV2";
+
+function ApplicationItem(application: any) {
+  return (
+    <div className="dashboard_latest_job_box jb_cover">
+      <div className="dashboard_job_list" style={{ width: "470px" }}>
+        <div style={{ display: "flex" }}>
+          <div>
+            <img
+              src={application.candidate_avatar || "/images/rs1.jpg"}
+              alt="post_img"
+            />
+          </div>
+          <div style={{ margin: "0 10px 0 10px" }}>
+            <a
+              href="#0"
+              style={{
+                fontSize: 20,
+                fontWeight: 500,
+                color: "#222222",
+              }}
+            >
+              {application.candidate_name}
+            </a>
+
+            <div style={{ color: "#ff3366" }}>
+              <i className="flaticon-location-pointer" />
+              &nbsp; {application.candidate_address}
+            </div>
+            <div style={{ color: "#ff3366" }}>
+              <i className="fas fa-suitcase" />
+              &nbsp; Senior UX asd asda sda sd
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="dashboard_job_list_next">
+        <div className="header_btn download_btn_wrapper jb_cover">
+          <ul>
+            <li>
+              <a
+                href="#0"
+                style={{
+                  width: " fit-content",
+                  padding: "0 10px 0 10px",
+                }}
+              >
+                <i className="fas fa-file-download" />
+                download
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div className="dashboard_job_list_next">
+        <div className="jb_job_post_right_btn_wrapper">
+          <ul>
+            <li />
+            <li>
+              {" "}
+              <a
+                href="#0"
+                className="applied_btn"
+                onClick={() =>
+                  application.handleSetApplicationState(
+                    application.id,
+                    "rejected"
+                  )
+                }
+              >
+                Reject
+              </a>
+            </li>
+            <li>
+              <a
+                href="#0"
+                className="applied_btn"
+                onClick={() =>
+                  application.handleSetApplicationState(
+                    application.id,
+                    "approved"
+                  )
+                }
+              >
+                Approve
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function ManageApplication() {
-  const applications = useApplicationListByCompany();
+  const { applications, reload } = useApplicationListByCompanyV2();
+  const { token } = useSelector(selectLogin);
 
   const displayApplicationList = useCallback(() => {
+    const handleSetApplicationState = async (id: string, state: string) => {
+      const payload = {
+        application: {
+          state: state,
+          id: id,
+        },
+      };
+
+      try {
+        await setApplicationState(token, payload);
+        alert(state);
+        reload();
+      } catch (e) {
+        alert(e);
+      }
+    };
     return (
       <>
         {applications.map((application, key) => {
           return (
-            <div className="dashboard_latest_job_box jb_cover" key={key}>
-              <div className="dashboard_job_list" style={{ width: "470px" }}>
-                <div style={{ display: "flex" }}>
-                  <div>
-                    <img src={application.candidate_avatar || "/images/rs1.jpg"} alt="post_img" />
-                  </div>
-                  <div style={{ margin: "0 10px 0 10px" }}>
-                    <a
-                      href="#0"
-                      style={{
-                        fontSize: 20,
-                        fontWeight: 500,
-                        color: "#222222",
-                      }}
-                    >
-                      {application.candidate_name}
-                    </a>
-
-                    <div style={{ color: "#ff3366" }}>
-                      <i className="flaticon-location-pointer" />
-                      &nbsp; {application.candidate_address}
-                    </div>
-                    <div style={{ color: "#ff3366" }}>
-                      <i className="fas fa-suitcase" />
-                      &nbsp; Senior UX asd asda sda sd
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="dashboard_job_list_next">
-                <div className="header_btn download_btn_wrapper jb_cover">
-                  <ul>
-                    <li>
-                      <a
-                        href="#0"
-                        style={{
-                          width: " fit-content",
-                          padding: "0 10px 0 10px",
-                        }}
-                      >
-                        <i className="fas fa-file-download" />
-                        download
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="dashboard_job_list_next">
-                <div className="jb_job_post_right_btn_wrapper">
-                  <ul>
-                    <li />
-                    <li>
-                      {" "}
-                      <a href="#0" className="applied_btn">
-                        Reject
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#0" className="applied_btn">
-                        Approve
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
+            <div key={key}>
+              {application.state === "pending" && (
+                <ApplicationItem
+                  id={application.id}
+                  handleSetApplicationState={handleSetApplicationState}
+                  candidate_avatar={application.candidate_avatar}
+                  candidate_address={application.candidate_address}
+                  candidate_name={application.candidate_name}
+                />
+              )}
             </div>
           );
         })}
       </>
     );
-  }, [applications]);
+  }, [applications, reload, token]);
 
   return (
     <>
