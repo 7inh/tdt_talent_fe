@@ -1,11 +1,13 @@
 import { MdDashboard } from "react-icons/md";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import NotificationList from "../../components/NotificationList";
-import { removeLogin } from "../login/loginSlice";
+import { removeLogin } from "../features/login/loginSlice";
+import useProfile from "../hooks/useProfile";
+import NotificationList from "./NotificationList";
 
-export default function User({ user }: any) {
+export default function AccountControlButton({ user }: any) {
   const dispatch = useDispatch();
+  const profile = useProfile();
 
   const logout = () => {
     dispatch(removeLogin());
@@ -43,7 +45,7 @@ export default function User({ user }: any) {
               className="luca_profile_wrapper"
               style={{ lineHeight: "25px" }}
             >
-              <div style={{ fontSize: 16 }}>{user.name}</div>
+              <div style={{ fontSize: 16 }}>{profile.full_name || user.name}</div>
               <a href="#0">{user.email}</a>
             </div>
           </span>

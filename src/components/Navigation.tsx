@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import { Link, useLocation } from "react-router-dom";
 import Login from "../features/login/Login";
 import { selectLogin } from "../features/login/loginSlice";
-import User from "../features/user/User";
+import AccountControlButton from "./AccountControlButton";
 
 export default function Navigation() {
   const { user, token } = useSelector(selectLogin);
@@ -158,7 +158,7 @@ export default function Navigation() {
           </header>
           {/* mobile menu area end */}
 
-          {token ? <User user={user} /> : <Login />}
+          {token ? <AccountControlButton user={user} /> : <Login />}
 
           <div className="jb_navigation_wrapper">
             <div className="mainmenu d-xl-block d-lg-block d-md-none d-sm-none d-none">

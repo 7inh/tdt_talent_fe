@@ -48,9 +48,9 @@ export default function CandidateDashBoard() {
                   <ul className="feedlist">
                     <li>
                       <Link
-                        to="resume"
+                        to="/dashboard"
                         className={
-                          location.pathname.match(/\/resume$/g)
+                          location.pathname.match(/\/dashboard$/g)
                             ? "link_active"
                             : ""
                         }

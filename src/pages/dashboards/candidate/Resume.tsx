@@ -1,7 +1,36 @@
+import { useRef, useState } from "react";
+import { useSelector } from "react-redux";
+import CandidateProfileForm from "../../../components/CandidateProfileForm";
+import { selectLogin } from "../../../features/login/loginSlice";
+import updateProfile from "../../../features/profile/updateProfile";
 import useProfile from "../../../hooks/useProfile";
 
 export default function Resume() {
   const profile = useProfile();
+  const { token } = useSelector(selectLogin);
+  const [btnEnable, setBtnState] = useState(true);
+  const fullNameInput = useRef<HTMLInputElement>(null);
+  const phoneNumberInput = useRef<HTMLInputElement>(null);
+
+  const handleUpdateProfile = async () => {
+    setBtnState(false);
+    const payload = {
+      profile: {
+        full_name: fullNameInput.current?.value,
+        phone_number: phoneNumberInput.current?.value,
+      },
+    };
+    try {
+      await updateProfile(token, payload);
+      // alert("success");
+      // window.location.reload();
+    } catch (e) {
+      alert(e);
+      return;
+    }
+    setBtnState(true);
+  };
+
   console.log("profile2", profile);
   return (
     <>
@@ -17,185 +46,7 @@ export default function Resume() {
               </span>
             </h1>
           </div>
-          <div
-            className="modal fade delete_popup company_popup"
-            id="myModal1"
-            role="dialog"
-          >
-            <div className="modal-dialog">
-              <div className="modal-content">
-                <button
-                  type="button"
-                  className="close"
-                  data-dismiss="modal"
-                ></button>
-                <div className="row">
-                  <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div className="delett_cntn jb_cover">
-                      <h1>
-                        <i className="fas fa-edit" />
-                        basic information
-                      </h1>
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>full name :</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder={profile.full_name || ""}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
 
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>email :</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder={profile.contact_mail || "example@gmail.com"}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>phone :</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder={profile.phone_number|| "09........"}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>location :</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder={profile.address || "Ho Chi Minh City" }
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>contry :</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="email"
-                                name="email"
-                                placeholder={profile.country || "Vietnam"}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>city</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder={profile.city || "Ho Chi Minh City"}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>website</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder={profile.website || "example.com"}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="category_wrapper jb_cover">
-                        <div className="row">
-                          <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                            <div className="category_lavel jb_cover">
-                              <p>attach resume</p>
-                            </div>
-                          </div>
-                          <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                            <div className="delete_jb_form">
-                              <input
-                                type="text"
-                                name="name"
-                                placeholder={profile.attach_resume || "none"}
-                              />
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="padder_top jb_cover" />
-                      <div className="header_btn search_btn applt_pop_btn">
-                        <a href="#0">save updates</a>
-                      </div>
-                      <div className="cancel_wrapper">
-                        <a href="#0" data-dismiss="modal">
-                          cancel
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
           <div className="dashboard_job_overview_header jb_cover">
             <div className="row">
               <div className="col-lg-6 col-md-12 col-sm-12 col-12">
@@ -323,7 +174,7 @@ export default function Resume() {
                       <div className="delett_cntn jb_cover">
                         <h1>
                           <i className="fas fa-edit" />
-                          about 
+                          about
                         </h1>
                         <div className="category_wrapper jb_cover">
                           <div className="row">
@@ -379,6 +230,14 @@ export default function Resume() {
           </div>
         </div>
       </div>
+
+      <CandidateProfileForm
+        fullNameInput={fullNameInput}
+        phoneNumberInput={phoneNumberInput}
+        profile={profile}
+        btnEnable={btnEnable}
+        handleUpdateProfile={handleUpdateProfile}
+      />
     </>
   );
 }
