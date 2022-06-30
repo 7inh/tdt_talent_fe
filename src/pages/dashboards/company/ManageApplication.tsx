@@ -33,7 +33,7 @@ function ApplicationItem(application: any) {
             </div>
             <div style={{ color: "#ff3366" }}>
               <i className="fas fa-suitcase" />
-              &nbsp; Senior UX asd asda sda sd
+              &nbsp; {application.job_title}
             </div>
           </div>
         </div>
@@ -129,6 +129,7 @@ export default function ManageApplication() {
                   candidate_avatar={application.candidate_avatar}
                   candidate_address={application.candidate_address}
                   candidate_name={application.candidate_name}
+                  job_title={application.job_title}
                 />
               )}
             </div>
@@ -170,10 +171,10 @@ export default function ManageApplication() {
                         <i className="flaticon-left-arrow" />{" "}
                       </a>
                     </li>
-                    <li>
+                    <li className="third_pagger">
                       <a href="#0">1</a>
                     </li>
-                    <li className="third_pagger">
+                    <li>
                       <a href="#0">2</a>
                     </li>
                     <li className="d-block d-sm-block d-md-block d-lg-block">
