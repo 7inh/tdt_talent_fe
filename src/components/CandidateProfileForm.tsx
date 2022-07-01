@@ -1,6 +1,11 @@
 export default function CandidateProfileForm({
   fullNameInput,
   phoneNumberInput,
+  addressInput,
+  countryInput,
+  cityInput,
+  websiteInput,
+  attach_resumeInput,
   profile,
   btnEnable,
   handleUpdateProfile,
@@ -93,6 +98,7 @@ export default function CandidateProfileForm({
                       <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                         <div className="delete_jb_form">
                           <input
+                            ref={addressInput}
                             type="text"
                             name="name"
                             placeholder={profile.address || "Ho Chi Minh City"}
@@ -111,6 +117,7 @@ export default function CandidateProfileForm({
                       <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                         <div className="delete_jb_form">
                           <input
+                            ref={countryInput}
                             type="email"
                             name="email"
                             placeholder={profile.country || "Vietnam"}
@@ -129,6 +136,7 @@ export default function CandidateProfileForm({
                       <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                         <div className="delete_jb_form">
                           <input
+                            ref={cityInput}
                             type="text"
                             name="name"
                             placeholder={profile.city || "Ho Chi Minh City"}
@@ -147,6 +155,7 @@ export default function CandidateProfileForm({
                       <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                         <div className="delete_jb_form">
                           <input
+                            ref={websiteInput}
                             type="text"
                             name="name"
                             placeholder={profile.website || "example.com"}
@@ -165,6 +174,7 @@ export default function CandidateProfileForm({
                       <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                         <div className="delete_jb_form">
                           <input
+                            ref={attach_resumeInput}
                             type="text"
                             name="name"
                             placeholder={profile.attach_resume || "none"}
@@ -195,6 +205,7 @@ export default function CandidateProfileForm({
           </div>
         </div>
       </div>
+     
     </>
   );
 }

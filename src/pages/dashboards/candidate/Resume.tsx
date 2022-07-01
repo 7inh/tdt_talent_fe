@@ -11,6 +11,12 @@ export default function Resume() {
   const [btnEnable, setBtnState] = useState(true);
   const fullNameInput = useRef<HTMLInputElement>(null);
   const phoneNumberInput = useRef<HTMLInputElement>(null);
+  const addressInput = useRef<HTMLInputElement>(null);
+  const countryInput = useRef<HTMLInputElement>(null);
+  const cityInput = useRef<HTMLInputElement>(null);
+  const websiteInput = useRef<HTMLInputElement>(null);
+  const attach_resumeInput = useRef<HTMLInputElement>(null);
+  const descriptionInput = useRef<HTMLInputElement>(null);
 
   const handleUpdateProfile = async () => {
     setBtnState(false);
@@ -18,6 +24,11 @@ export default function Resume() {
       profile: {
         full_name: fullNameInput.current?.value,
         phone_number: phoneNumberInput.current?.value,
+        address: addressInput.current?.value,
+        country: countryInput.current?.value,
+        city: cityInput.current?.value,
+        website:websiteInput.current?.value,
+        attach_resume: attach_resumeInput.current?.value,
       },
     };
     try {
@@ -103,7 +114,7 @@ export default function Resume() {
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
                       <li>contry:</li>
-                      <li>{profile.address}</li>
+                      <li>{profile.country}</li>
                     </ul>
                   </div>
                 </div>
@@ -186,7 +197,8 @@ export default function Resume() {
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                               <div className="delete_jb_form">
                                 <textarea
-                                  className="require"
+                            ref={descriptionInput}
+                            className="require"
                                   name="message"
                                   rows={5}
                                   placeholder="Write Yourself"
@@ -214,18 +226,7 @@ export default function Resume() {
           </div>
           <div className="dashboard_job_overview_header pdd jb_cover">
             <p>
-              Google is and always will be an engineering company. We hire
-              people with a broad set of icalskills who are ready to tackle some
-              of technology's greatest challenges and make an impact on milions,
-              if not billions, of users. At Google, engineers not only
-              revolutionize search, they routinely work on massive scalability
-              and storage solutions,
-              <br />
-              <br />
-              large-scale applications and rely new platforms for developers
-              around the world. From AdWords to rome, Android to Ye, Social to
-              Local, Google engineers are changing the world. From AdWords to
-              Chrome, Aoid to Ye, Social to.
+            {profile.description}
             </p>
           </div>
         </div>
@@ -234,6 +235,12 @@ export default function Resume() {
       <CandidateProfileForm
         fullNameInput={fullNameInput}
         phoneNumberInput={phoneNumberInput}
+        addressInput={addressInput}
+        countryInput={countryInput}
+        cityInput={ cityInput}
+        websiteInput={websiteInput}
+        attach_resumeInput={attach_resumeInput}
+        descriptionInput = {descriptionInput}
         profile={profile}
         btnEnable={btnEnable}
         handleUpdateProfile={handleUpdateProfile}
