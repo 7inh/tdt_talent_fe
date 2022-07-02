@@ -1,8 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
+import AccountProfileModal from "../../../components/AccoutPriofileModal";
+import CandidateProfileForm from "../../../components/CandidateProfileForm";
 import useAccountList from "../../../hooks/useAccountList";
 
 export default function ManageAccount() {
   const accounts = useAccountList();
+  const [selectedAccount, setSelectedAccount] = useState(accounts[0]);
 
   const displayJobList = useCallback(() => {
     return (
@@ -14,7 +17,10 @@ export default function ManageAccount() {
                 className="dashboard_job_list_next"
                 style={{ display: "flex" }}
               >
-                <img src={account.avatar_url || "/images/rs1.jpg"} alt="post_img" />
+                <img
+                  src={account.avatar_url || "/images/rs1.jpg"}
+                  alt="post_img"
+                />
               </div>
               <div className="dashboard_job_list">
                 <h6>
@@ -31,7 +37,12 @@ export default function ManageAccount() {
               <div className="dashboard_job_list_next">
                 <ul>
                   <li>
-                    <a href="#0">
+                    <a
+                      href="#0"
+                      onClick={() => setSelectedAccount(account)}
+                      data-toggle="modal"
+                      data-target="#myModal1"
+                    >
                       <i className="fas fa-eye" />
                     </a>
                   </li>
@@ -56,130 +67,17 @@ export default function ManageAccount() {
 
   return (
     <>
-      <div
-        className="modal fade delete_popup company_popup"
-        id="myModal1"
-        role="dialog"
-      >
-        <div className="modal-dialog">
-          <div className="modal-content">
-            <button type="button" className="close" data-dismiss="modal">
-              ×
-            </button>
-            <div className="row">
-              <div className="col-lg-12 col-md-12 col-sm-12 col-12">
-                <div className="delett_cntn jb_cover">
-                  <h1>
-                    <i className="fas fa-edit" />
-                    about us
-                  </h1>
-                  <div className="category_wrapper jb_cover">
-                    <div className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div className="category_lavel jb_cover">
-                          <p>company name</p>
-                        </div>
-                      </div>
-                      <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                        <div className="delete_jb_form">
-                          <input type="text" name="name" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="category_wrapper jb_cover">
-                    <div className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div className="category_lavel jb_cover">
-                          <p>location</p>
-                        </div>
-                      </div>
-                      <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                        <div className="delete_jb_form">
-                          <input type="text" name="name" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="category_wrapper jb_cover">
-                    <div className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div className="category_lavel jb_cover">
-                          <p>phone</p>
-                        </div>
-                      </div>
-                      <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                        <div className="delete_jb_form">
-                          <input type="text" name="name" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="category_wrapper jb_cover">
-                    <div className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div className="category_lavel jb_cover">
-                          <p>email</p>
-                        </div>
-                      </div>
-                      <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                        <div className="delete_jb_form">
-                          <input type="email" name="email" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="category_wrapper jb_cover">
-                    <div className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div className="category_lavel jb_cover">
-                          <p>Country</p>
-                        </div>
-                      </div>
-                      <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                        <div className="delete_jb_form">
-                          <input type="text" name="name" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="category_wrapper jb_cover">
-                    <div className="row">
-                      <div className="col-lg-3 col-md-3 col-sm-12 col-12">
-                        <div className="category_lavel jb_cover">
-                          <p>website</p>
-                        </div>
-                      </div>
-                      <div className="col-lg-9 col-md-9 col-sm-12 col-12">
-                        <div className="delete_jb_form">
-                          <input type="text" name="name" />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div className="padder_top jb_cover" />
-                  <div className="header_btn search_btn dashboard_applt_pop_btn">
-                    <a href="#0">save updates</a>
-                  </div>
-                  <div className="cancel_wrapper">
-                    <a href="#0" data-dismiss="modal">
-                      cancel
-                    </a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
+      {selectedAccount && <AccountProfileModal profile={selectedAccount} />}
       <div className="col-lg-9 col-md-12 col-sm-12 col-12">
         <div className="row">
           <div className="col-lg-12 col-md-12 col-sm-12 col-12">
             <div className="job_main_overflow jb_cover">
               <div className="dashboard_latest_job_overlow">
                 <div className="manage_jobs_wrapper jb_cover">
-                  <div className="dashboard_job_list_next mange_list" style={{textAlign: 'left'}}>
+                  <div
+                    className="dashboard_job_list_next mange_list"
+                    style={{ textAlign: "left" }}
+                  >
                     <h6>Avatar</h6>
                   </div>
                   <div className="dashboard_job_list mange_list">
@@ -206,7 +104,7 @@ export default function ManageAccount() {
                     <li className="third_pagger">
                       <a href="#0">1</a>
                     </li>
-                    <li >
+                    <li>
                       <a href="#0">2</a>
                     </li>
                     <li className="d-block d-sm-block d-md-block d-lg-block">
