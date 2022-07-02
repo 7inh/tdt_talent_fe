@@ -16,25 +16,43 @@ export default function Resume() {
   const cityInput = useRef<HTMLInputElement>(null);
   const websiteInput = useRef<HTMLInputElement>(null);
   const attach_resumeInput = useRef<HTMLInputElement>(null);
-  const descriptionInput = useRef<HTMLInputElement>(null);
+  const descriptionInput = useRef<HTMLTextAreaElement>(null);
 
   const handleUpdateProfile = async () => {
     setBtnState(false);
     const payload = {
       profile: {
-        full_name: fullNameInput.current?.value,
-        phone_number: phoneNumberInput.current?.value,
-        address: addressInput.current?.value,
-        country: countryInput.current?.value,
-        city: cityInput.current?.value,
-        website:websiteInput.current?.value,
-        attach_resume: attach_resumeInput.current?.value,
+        full_name: fullNameInput.current?.value || profile.full_name,
+        phone_number: phoneNumberInput.current?.value || profile.phone_number,
+        address: addressInput.current?.value || profile.address,
+        country: countryInput.current?.value || profile.country,
+        city: cityInput.current?.value || profile.city,
+        website: websiteInput.current?.value || profile.website,
+        attach_resume: attach_resumeInput.current?.value || profile.attach_resume,
       },
     };
     try {
       await updateProfile(token, payload);
-      // alert("success");
-      // window.location.reload();
+      alert("success");
+      window.location.reload();
+    } catch (e) {
+      alert(e);
+      return;
+    }
+    setBtnState(true);
+  };
+
+  const handleUpdateDescription = async () => {
+    setBtnState(false);
+    const payload = {
+      profile: {
+        description: descriptionInput.current?.value || profile.description,
+      },
+    };
+    try {
+      await updateProfile(token, payload);
+      alert("success");
+      window.location.reload();
     } catch (e) {
       alert(e);
       return;
@@ -102,7 +120,7 @@ export default function Resume() {
                   </div>
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
-                      <li>Location:</li>
+                      <li>Address:</li>
                       <li>{profile.address}</li>
                     </ul>
                   </div>
@@ -191,17 +209,17 @@ export default function Resume() {
                           <div className="row">
                             <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                               <div className="category_lavel jb_cover">
-                                <p>write yourself:</p>
+                                <p>About Yourself:</p>
                               </div>
                             </div>
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                               <div className="delete_jb_form">
                                 <textarea
-                            ref={descriptionInput}
-                            className="require"
+                                  ref={descriptionInput}
+                                  className="require"
                                   name="message"
                                   rows={5}
-                                  placeholder="Write Yourself"
+                                  placeholder="I'm a ..."
                                   defaultValue={""}
                                 />
                               </div>
@@ -209,7 +227,7 @@ export default function Resume() {
                           </div>
                         </div>
                         <div className="padder_top jb_cover" />
-                        <div className="header_btn search_btn applt_pop_btn">
+                        <div className="header_btn search_btn" onClick={() => handleUpdateDescription()}>
                           <a href="#0">save updates</a>
                         </div>
                         <div className="cancel_wrapper">
@@ -225,9 +243,7 @@ export default function Resume() {
             </div>
           </div>
           <div className="dashboard_job_overview_header pdd jb_cover">
-            <p>
-            {profile.description}
-            </p>
+            <p>{profile.description}</p>
           </div>
         </div>
       </div>
@@ -237,10 +253,10 @@ export default function Resume() {
         phoneNumberInput={phoneNumberInput}
         addressInput={addressInput}
         countryInput={countryInput}
-        cityInput={ cityInput}
+        cityInput={cityInput}
         websiteInput={websiteInput}
         attach_resumeInput={attach_resumeInput}
-        descriptionInput = {descriptionInput}
+        descriptionInput={descriptionInput}
         profile={profile}
         btnEnable={btnEnable}
         handleUpdateProfile={handleUpdateProfile}

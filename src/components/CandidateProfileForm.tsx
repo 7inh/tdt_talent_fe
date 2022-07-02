@@ -92,7 +92,7 @@ export default function CandidateProfileForm({
                     <div className="row">
                       <div className="col-lg-3 col-md-3 col-sm-12 col-12">
                         <div className="category_lavel jb_cover">
-                          <p>location :</p>
+                          <p>Address :</p>
                         </div>
                       </div>
                       <div className="col-lg-9 col-md-9 col-sm-12 col-12">
