@@ -4,12 +4,13 @@ import { selectLogin } from "../features/login/loginSlice";
 
 const useNotificationList = () => {
   const { token } = useSelector(selectLogin);
-  const [notification, setNotifications] = useState([
-    {
-      from: "",
-      created_at: "",
-    },
-  ]);
+  const [notification, setNotifications] = useState<{
+    from_name: string;
+    from_avatar: string;
+    action: string;
+    job_title: string;
+    created_at: string;
+  }[]>([]);
 
   useEffect(() => {
     const getNotifications = async () => {
@@ -24,6 +25,8 @@ const useNotificationList = () => {
       };
 
       const response = await axios(config);
+
+      console.log("===========================", response.data);
 
       setNotifications(response.data);
     };
