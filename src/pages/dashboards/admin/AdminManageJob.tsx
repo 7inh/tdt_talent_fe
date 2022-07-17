@@ -73,13 +73,14 @@ function JobItem(job: any) {
 }
 
 export default function AdminManageJob() {
-  const { token } = useSelector(selectLogin);
+  const { token, user } = useSelector(selectLogin);
   const { jobs, reload } = useJobListV2();
 
   const displayJobList = useCallback(() => {
     const handleSetJobState = async (id: string, state: string) => {
       const payload = {
         job: {
+          approver: user.id,
           state: state,
           id: id,
         },
