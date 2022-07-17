@@ -14,6 +14,7 @@ const useProfile = () => {
     description: "",
     phone_number: "",
     attach_resume: "",
+    attach_resume_url: "",
     contact_mail: "",
     country: "",
     city: "",

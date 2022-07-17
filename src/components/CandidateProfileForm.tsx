@@ -175,7 +175,7 @@ export default function CandidateProfileForm({
                         <div className="delete_jb_form">
                           <input
                             ref={attach_resumeInput}
-                            type="text"
+                            type="file"
                             name="name"
                             placeholder={profile.attach_resume || "none"}
                           />

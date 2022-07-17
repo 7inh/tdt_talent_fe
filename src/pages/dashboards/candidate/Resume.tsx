@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import CandidateProfileForm from "../../../components/CandidateProfileForm";
 import { selectLogin } from "../../../features/login/loginSlice";
 import updateProfile from "../../../features/profile/updateProfile";
+import uploadPdf from "../../../features/upload/uploadPdf";
 import useProfile from "../../../hooks/useProfile";
 
 export default function Resume() {
@@ -20,6 +21,13 @@ export default function Resume() {
 
   const handleUpdateProfile = async () => {
     setBtnState(false);
+
+    let fileUploaded;
+
+    if (attach_resumeInput.current?.value) {
+      fileUploaded = await uploadPdf(token, attach_resumeInput.current.files);
+    }
+
     const payload = {
       profile: {
         full_name: fullNameInput.current?.value || profile.full_name,
@@ -28,9 +36,11 @@ export default function Resume() {
         country: countryInput.current?.value || profile.country,
         city: cityInput.current?.value || profile.city,
         website: websiteInput.current?.value || profile.website,
-        attach_resume: attach_resumeInput.current?.value || profile.attach_resume,
+        attach_resume: fileUploaded?.originalname || profile.attach_resume,
+        attach_resume_url: fileUploaded?.path,
       },
     };
+
     try {
       await updateProfile(token, payload);
       alert("success");
@@ -168,7 +178,14 @@ export default function Resume() {
                   <div className="jp_listing_list_icon_cont_wrapper">
                     <ul>
                       <li>attach resume</li>
-                      <li>{profile.attach_resume}</li>
+                      <li>
+                        <a
+                          href={`http://localhost:7000/${profile.attach_resume_url}`}
+                          target="_blank" rel="noreferrer"
+                        >
+                          <em>{profile.attach_resume}</em>
+                        </a>
+                      </li>
                     </ul>
                   </div>
                 </div>
@@ -227,7 +244,10 @@ export default function Resume() {
                           </div>
                         </div>
                         <div className="padder_top jb_cover" />
-                        <div className="header_btn search_btn" onClick={() => handleUpdateDescription()}>
+                        <div
+                          className="header_btn search_btn"
+                          onClick={() => handleUpdateDescription()}
+                        >
                           <a href="#0">save updates</a>
                         </div>
                         <div className="cancel_wrapper">
