@@ -1724,17 +1724,6 @@ export default function JobList() {
                         defaultValue={""}
                       />
                     </div>
-                    <div className="resume_optional jb_cover">
-                      <p>resume (optional)</p>
-                      <div className="width_50">
-                        <input
-                          type="file"
-                          id="input-file-now-custom-2"
-                          className=""
-                          data-height={90}
-                        />
-                      </div>
-                    </div>
                   </div>
                   <div className="header_btn search_btn applt_pop_btn jb_cover">
                     <a href="#0" onClick={submitApplication}>

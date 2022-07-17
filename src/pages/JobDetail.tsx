@@ -140,30 +140,12 @@ export default function JobDetail() {
                                 />
                               </div>
                               <div className="apply_job_form">
-                                <input
-                                  type="text"
-                                  name="Email"
-                                  placeholder="Enter Your Email"
-                                />
-                              </div>
-                              <div className="apply_job_form">
                                 <textarea
                                   className="form-control"
                                   name="message"
                                   placeholder="Message"
                                   defaultValue={""}
                                 />
-                              </div>
-                              <div className="resume_optional jb_cover">
-                                <p>resume (optional)</p>
-                                <div className="width_50">
-                                  <input
-                                    type="file"
-                                    id="input-file-now-custom-27"
-                                    className="dropify"
-                                    data-height={90}
-                                  />
-                                </div>
                               </div>
                             </div>
                             <div className="header_btn search_btn applt_pop_btn jb_cover">
