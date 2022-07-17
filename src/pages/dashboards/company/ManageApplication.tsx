@@ -43,7 +43,9 @@ function ApplicationItem(application: any) {
           <ul>
             <li>
               <a
-                href="#0"
+                href={`http://localhost:7000/${application.candidate_resume_url}`}
+                target="_blank"
+                rel="noreferrer"
                 style={{
                   width: " fit-content",
                   padding: "0 10px 0 10px",
@@ -57,40 +59,46 @@ function ApplicationItem(application: any) {
         </div>
       </div>
       <div className="dashboard_job_list_next">
-        <div className="jb_job_post_right_btn_wrapper">
-          <ul>
-            <li />
-            <li>
-              {" "}
-              <a
-                href="#0"
-                className="applied_btn"
-                onClick={() =>
-                  application.handleSetApplicationState(
-                    application.id,
-                    "rejected"
-                  )
-                }
-              >
-                Reject
-              </a>
-            </li>
-            <li>
-              <a
-                href="#0"
-                className="applied_btn"
-                onClick={() =>
-                  application.handleSetApplicationState(
-                    application.id,
-                    "approved"
-                  )
-                }
-              >
-                Approve
-              </a>
-            </li>
-          </ul>
-        </div>
+        {application.state === "pending" ? (
+          <div className="jb_job_post_right_btn_wrapper">
+            <ul>
+              <li />
+              <li>
+                {" "}
+                <a
+                  href="#0"
+                  className="applied_btn"
+                  onClick={() =>
+                    application.handleSetApplicationState(
+                      application.id,
+                      "rejected"
+                    )
+                  }
+                >
+                  Reject
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#0"
+                  className="applied_btn"
+                  onClick={() =>
+                    application.handleSetApplicationState(
+                      application.id,
+                      "approved"
+                    )
+                  }
+                >
+                  Approve
+                </a>
+              </li>
+            </ul>
+          </div>
+        ) : (
+          <div style={{ color: "#ff3366", textTransform: "capitalize" }}>
+            {application.state}
+          </div>
+        )}
       </div>
     </div>
   );
@@ -98,6 +106,7 @@ function ApplicationItem(application: any) {
 
 export default function ManageApplication() {
   const { applications, reload } = useApplicationListByCompanyV2();
+
   const { token } = useSelector(selectLogin);
 
   const displayApplicationList = useCallback(() => {
@@ -122,16 +131,16 @@ export default function ManageApplication() {
         {applications.map((application, key) => {
           return (
             <div key={key}>
-              {application.state === "pending" && (
-                <ApplicationItem
-                  id={application.id}
-                  handleSetApplicationState={handleSetApplicationState}
-                  candidate_avatar={application.candidate_avatar}
-                  candidate_address={application.candidate_address}
-                  candidate_name={application.candidate_name}
-                  job_title={application.job_title}
-                />
-              )}
+              <ApplicationItem
+                id={application.id}
+                handleSetApplicationState={handleSetApplicationState}
+                candidate_avatar={application.candidate_avatar}
+                candidate_address={application.candidate_address}
+                candidate_resume_url={application.candidate_resume_url}
+                candidate_name={application.candidate_name}
+                state={application.state}
+                job_title={application.job_title}
+              />
             </div>
           );
         })}

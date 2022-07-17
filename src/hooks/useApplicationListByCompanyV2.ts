@@ -13,6 +13,8 @@ const useApplicationListV2 = () => {
         state: "-",
         created_at: "-",
         candidate_avatar: "",
+        candidate_resume: "",
+        candidate_resume_url: "",
     },
   ]);
   const [refresh, setRefresh] = useState(0);
