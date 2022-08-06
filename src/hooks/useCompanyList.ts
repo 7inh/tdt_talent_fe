@@ -8,6 +8,9 @@ const useCompanyList = () => {
     {
       full_name: "",
       address: "",
+      country: "",
+      avatar_url: "",
+      account_id: "",
     },
   ]);
 

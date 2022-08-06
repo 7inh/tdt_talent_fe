@@ -10,6 +10,7 @@ export function JobItem({
   id,
   title,
   employment_type,
+  company_name,
   salary,
   state,
   location,
@@ -25,7 +26,7 @@ export function JobItem({
           <div className="col-lg-9 col-md-9 col-sm-12 col-12">
             <div className="jp_job_post_side_img">
               <img src="images/lt4.png" alt="post_img" />
-              <br /> <span>google</span>
+              <br /> <a href={`company/${company_id}`}>{company_name}</a>
             </div>
             <div className="jp_job_post_right_cont">
               <h4>
@@ -122,6 +123,7 @@ export default function JobList() {
               salary={job.salary}
               location={job.location}
               company_id={job.company_id}
+              company_name={job.company_name}
               handleApplyJob={handleApplyJob}
             />
           );

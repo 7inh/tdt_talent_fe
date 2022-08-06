@@ -6,7 +6,7 @@ export default function Footer() {
           <div className="col-lg-3 col-sm-6 col-12">
             <div className="footerNav jb_cover">
               <a href="#0">
-                <img width={200} src="images/tdt_talent_logo.jpeg" alt="img" />
+                <img width={200} src="/images/tdt_talent_logo.jpeg" alt="img" />
               </a>
               <ul className="footer_first_contact">
                 <li>

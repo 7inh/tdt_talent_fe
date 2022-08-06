@@ -1,14 +1,14 @@
 import { useCallback } from "react";
 import useCompanyList from "../hooks/useCompanyList";
 
-export function CompanyItem({ full_name, address }: any) {
+export function CompanyItem({ full_name, address, country, avatar_url, account_id }: any) {
   return (
     <div className="col-lg-3 col-md-4 col-sm-6 col-xs-12">
       <div className="company_main_wrapper">
         <div className="company_img_wrapper">
-          <img src="images/cmp1.png" alt="team_img1" />
+          <img src={avatar_url || "images/cmp1.png"} alt="team_img1" />
           <div className="btc_team_social_wrapper">
-            <h1>(usa)</h1>
+            <h1>{country}</h1>
           </div>
         </div>
         <div className="opening_job">
@@ -17,7 +17,7 @@ export function CompanyItem({ full_name, address }: any) {
           </h1>
         </div>
         <div className="company_img_cont_wrapper">
-          <h4>{full_name}</h4>
+          <h4><a href={`company/${account_id}`}>{full_name}</a></h4>
         </div>
       </div>
     </div>
@@ -36,6 +36,9 @@ export default function CompanyList() {
               key={i}
               full_name={company.full_name}
               address={company.address}
+              country={company.country}
+              avatar_url={company.avatar_url}
+              account_id={company.account_id}
             />
           );
         })}
