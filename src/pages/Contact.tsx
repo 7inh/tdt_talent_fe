@@ -20,8 +20,8 @@ export default function Contact() {
                     <i className="fas fa-phone" />
                   </div>
                   <p>
-                    +1800-148-423
-                    <br /> +9175-148-124
+                  (028) 37755046
+                    <br /> (028) 37755046
                   </p>
                 </div>
               </div>
@@ -32,9 +32,9 @@ export default function Contact() {
                     <i className="fas fa-envelope" />
                   </div>
                   <p>
-                    <a href="#0">jbdesks@example.com </a>
+                    <a href="#0">khoacntt@tdtu.edu.vn </a>
                     <br />
-                    <a href="#0">support@example.com</a>
+                    <a href="#0">khoacntt@tdtu.edu.vn</a>
                   </p>
                 </div>
               </div>
@@ -45,8 +45,8 @@ export default function Contact() {
                     <i className="fas fa-map-marker-alt" />
                   </div>
                   <p>
-                    51-Maxico ,canada
-                    <br /> 52B-melbourne,UK
+                    19 Nguyen Huu Tho
+                    <br />Distric 7, Ho Chi Minh
                   </p>
                 </div>
               </div>
