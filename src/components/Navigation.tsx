@@ -15,7 +15,7 @@ export default function Navigation() {
           <Link to="/">
             {" "}
             <span>
-              <img src="/images/logo.png" alt="img" />
+              <img src="/images/tdt_talent_logo.jpeg" alt="img" />
             </span>
           </Link>
         </h2>
@@ -86,9 +86,9 @@ export default function Navigation() {
       </nav>
       <div className="cp_navi_main_wrapper jb_cover">
         <div className="container-fluid">
-          <div className="cp_logo_wrapper">
+          <div className="cp_logo_wrapper" style={{display: "flex", justifyContent: "center"}}>
             <Link to="/">
-              <img src="/images/logo.png" alt="logo" />
+              <img width={120} src="/images/tdt_talent_logo.jpeg" alt="logo" />
             </Link>
           </div>
           {/* mobile menu area start */}
