@@ -80,7 +80,7 @@ export default function AppliedJob() {
         <div className="col-lg-12 col-md-12 col-sm-12 col-12">
           <div className="manage_jobs_wrapper jb_cover">
             <div className="mange_list applications_recent">
-              <h6>04 applied jobs</h6>
+              <h6>{applications.length} applied jobs</h6>
             </div>
           </div>
         </div>

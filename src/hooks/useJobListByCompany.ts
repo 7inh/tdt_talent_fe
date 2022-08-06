@@ -6,6 +6,7 @@ const useJobListByCompany = () => {
   const { token } = useSelector(selectLogin);
   const [jobs, setJobs] = useState([
     {
+      id: null,
       title: "-",
       state: "-",
       created_at: "-",

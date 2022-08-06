@@ -11,10 +11,13 @@ export function JobItem({
   title,
   employment_type,
   salary,
+  state,
   location,
   company_id,
   handleApplyJob,
 }: any) {
+  if (state === "pending") return null;
+
   return (
     <div className="col-lg-12 col-md-12 col-sm-12 col-12">
       <div className="job_listing_left_fullwidth jb_cover">
@@ -115,6 +118,7 @@ export default function JobList() {
               id={job.id}
               title={job.title}
               employment_type={job.employment_type}
+              state={job.state}
               salary={job.salary}
               location={job.location}
               company_id={job.company_id}
