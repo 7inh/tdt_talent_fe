@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import CompanyProfileForm from "../../../components/CompanyProfileForm";
 import { selectLogin } from "../../../features/login/loginSlice";
@@ -9,12 +9,31 @@ export default function Information() {
   const profile = useProfile();
   const { token } = useSelector(selectLogin);
   const [btnEnable, setBtnState] = useState(true);
+  const descriptionInput = useRef<HTMLTextAreaElement>(null);
 
   const handleUpdateProfile = async (profileUpdate: any) => {
     setBtnState(false);
     const payload = {
       profile: {
         ...profileUpdate,
+      },
+    };
+    try {
+      await updateProfile(token, payload);
+      alert("success");
+      window.location.reload();
+    } catch (e) {
+      alert(e);
+      return;
+    }
+    setBtnState(true);
+  };
+
+  const handleUpdateDescription = async () => {
+    setBtnState(false);
+    const payload = {
+      profile: {
+        description: descriptionInput.current?.value || profile.description,
       },
     };
     try {
@@ -167,6 +186,7 @@ export default function Information() {
                             <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                               <div className="delete_jb_form">
                                 <textarea
+                                  ref={descriptionInput}
                                   className="require"
                                   name="message"
                                   rows={5}
@@ -179,7 +199,12 @@ export default function Information() {
                         </div>
                         <div className="padder_top jb_cover" />
                         <div className="header_btn search_btn dashboard_applt_pop_btn">
-                          <a href="#0">save updates</a>
+                          <a
+                            href="#0"
+                            onClick={() => handleUpdateDescription()}
+                          >
+                            save updates
+                          </a>
                         </div>
                         <div className="cancel_wrapper">
                           <a href="#0" data-dismiss="modal">
