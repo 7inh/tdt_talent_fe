@@ -7,9 +7,7 @@ export default function Home() {
         <div className="jb_banner_left">
           <h1>The Easy Way To Get Your New Job</h1>
           <p>
-            This is Photoshop's version of Lorem Ipsum. Proin gravida nibh vel
-            velit auctor . sollicitudin, lorem quis bibendum auctor, sem nibh id
-            elit.{" "}
+          A platform for businesses and students of the Faculty of Information Technology to exchange and cooperate
           </p>
           <div className="contect_form3">
             <input
