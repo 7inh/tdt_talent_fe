@@ -20,6 +20,7 @@ import Resume from "./pages/dashboards/candidate/Resume";
 import AppliedJob from "./pages/dashboards/candidate/AppliedJob";
 import ManageAccount from "./pages/dashboards/admin/ManageAccount";
 import AdminManageJob from "./pages/dashboards/admin/AdminManageJob";
+import CompanyDetail from "./pages/CompanyDetail";
 
 export default function App() {
   const { user } = useSelector(selectLogin);
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="jobs" element={<Job />} />
           <Route path="job/:id" element={<JobDetail />} />
           <Route path="companies" element={<Company />}></Route>
+          <Route path="company/:id" element={<CompanyDetail />}></Route>
           <Route path="dashboard/*" element={<Dashboard />}>
             {user.role === "admin" && (
               <>
