@@ -1,6 +1,5 @@
 import { useCallback, useState } from "react";
 import AccountProfileModal from "../../../components/AccoutPriofileModal";
-import CandidateProfileForm from "../../../components/CandidateProfileForm";
 import useAccountList from "../../../hooks/useAccountList";
 
 export default function ManageAccount() {
@@ -24,7 +23,17 @@ export default function ManageAccount() {
               </div>
               <div className="dashboard_job_list">
                 <h6>
-                  <a href="#0">{account.full_name}</a>
+                  <a
+                    href={`/${
+                      account.role === "company"
+                        ? "company/" + account.account_id
+                        : account.role === "candidate"
+                        ? "candidate/" + account.account_id
+                        : ""
+                    }`}
+                  >
+                    {account.full_name}
+                  </a>
                 </h6>
                 <p>
                   {" "}

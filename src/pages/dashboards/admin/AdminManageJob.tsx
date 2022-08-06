@@ -18,7 +18,7 @@ function JobItem(job: any) {
           </div>
           <div style={{ margin: "0 10px 0 10px" }}>
             <a
-              href="#0"
+              href={`/job/${job.id}`}
               style={{
                 fontSize: 20,
                 fontWeight: 500,

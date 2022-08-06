@@ -37,6 +37,7 @@ export default function App() {
           <Route path="job/:id" element={<JobDetail />} />
           <Route path="companies" element={<Company />}></Route>
           <Route path="company/:id" element={<CompanyDetail />}></Route>
+          <Route path="candidate/:id" element={<CompanyDetail />}></Route>
           <Route path="dashboard/*" element={<Dashboard />}>
             {user.role === "admin" && (
               <>
