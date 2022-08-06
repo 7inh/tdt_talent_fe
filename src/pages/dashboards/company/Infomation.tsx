@@ -19,8 +19,8 @@ export default function Information() {
     };
     try {
       await updateProfile(token, payload);
-      // alert("success");
-      // window.location.reload();
+      alert("success");
+      window.location.reload();
     } catch (e) {
       alert(e);
       return;

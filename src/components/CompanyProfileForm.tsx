@@ -9,12 +9,14 @@ export default function CompanyProfileForm({
   const { register } = methods;
 
   const handleSubmit = () => {
-    console.log(methods.getValues("name"));
     handleUpdateProfile({
-        full_name: methods.getValues("name"),
-    })
-  }
-
+      full_name: methods.getValues("name") || profile.full_name,
+      phone_number: methods.getValues("phone") || profile.phone_number,
+      address: methods.getValues("address") || profile.address,
+      country: methods.getValues("country") || profile.country,
+      website: methods.getValues("website") || profile.country,
+    });
+  };
 
   return (
     <>
@@ -67,6 +69,7 @@ export default function CompanyProfileForm({
                           <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                             <div className="delete_jb_form">
                               <input
+                                readOnly
                                 type="text"
                                 name="name"
                                 placeholder={
@@ -87,10 +90,11 @@ export default function CompanyProfileForm({
                           <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                             <div className="delete_jb_form">
                               <input
+                                {...register("phone")}
                                 type="text"
-                                name="name"
+                                name="phone"
                                 placeholder={
-                                  profile.phone_number || "09........"
+                                  profile.phone_number || "your phone number"
                                 }
                               />
                             </div>
@@ -107,8 +111,9 @@ export default function CompanyProfileForm({
                           <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                             <div className="delete_jb_form">
                               <input
+                                {...register("address")}
                                 type="text"
-                                name="name"
+                                name="address"
                                 placeholder={
                                   profile.address || "Ho Chi Minh City"
                                 }
@@ -127,8 +132,9 @@ export default function CompanyProfileForm({
                           <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                             <div className="delete_jb_form">
                               <input
+                                {...register("country")}
                                 type="email"
-                                name="email"
+                                name="country"
                                 placeholder={profile.country || "Vietnam"}
                               />
                             </div>
@@ -145,8 +151,9 @@ export default function CompanyProfileForm({
                           <div className="col-lg-9 col-md-9 col-sm-12 col-12">
                             <div className="delete_jb_form">
                               <input
+                                {...register("website")}
                                 type="text"
-                                name="name"
+                                name="website"
                                 placeholder={profile.website || "example.com"}
                               />
                             </div>
