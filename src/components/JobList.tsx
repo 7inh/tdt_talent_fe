@@ -1,10 +1,12 @@
 import { current } from "@reduxjs/toolkit";
+import { type } from "os";
 import { useCallback, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import applyJob from "../features/application/applyJob";
 import { selectLogin } from "../features/login/loginSlice";
 import useJobList from "../hooks/useJobList";
+import useJobTotal from "../hooks/useJobTotal";
 import JobFilter from "./JobFilter";
 
 export function JobItem({
@@ -86,6 +88,8 @@ function calculatePadding(
 ) {
   const padding = [];
 
+  if (currentPage - numberNav > 1) padding.push("...");
+
   for (
     let i = Math.max(2, currentPage - numberNav);
     i <= Math.min(maxPage - 1, currentPage + numberNav);
@@ -94,27 +98,28 @@ function calculatePadding(
     padding.push(i);
   }
 
+  if (currentPage + numberNav < maxPage) padding.push("...");
+
   return padding;
 }
 
-const currentPage = 2;
-const numberNav = 3;
-const jobPerPage = 10;
-const totalJob = 60;
-const maxPage = Math.ceil(totalJob / jobPerPage);
-
-const listPageNav = [
-  1,
-  ...calculatePadding(maxPage, currentPage, numberNav),
-  maxPage,
-];
-
-console.log("listPageNav", listPageNav);
+const numberNav = 2;
+const jobPerPage = 3;
 
 export default function JobList() {
   const { token } = useSelector(selectLogin);
 
-  const jobs = useJobList();
+  const [currentPage, setCurrentPage] = useState(1);
+  const total = useJobTotal();
+  const jobs = useJobList(currentPage);
+
+  const maxPage = Math.ceil(total["count"] / jobPerPage);
+  const listPageNav = [
+    1,
+    ...calculatePadding(maxPage, currentPage, numberNav),
+    maxPage,
+  ];
+
   const [jobId, setJobId] = useState("");
   const [companyId, setCompanyId] = useState("");
   const closeModelRef = useRef<HTMLButtonElement>(null);
@@ -1702,28 +1707,35 @@ export default function JobList() {
 
                 <div className="blog_pagination_section jb_cover">
                   <ul>
-                    <li>
+                    <li
+                      onClick={() =>
+                        setCurrentPage(Math.max(currentPage - 1, 1))
+                      }
+                    >
                       <a href="#0" className="prev">
-                        {" "}
                         <i className="flaticon-left-arrow" />{" "}
                       </a>
                     </li>
-                    <li className="third_pagger">
-                      <a href="#0">1</a>
-                    </li>
-                    <li>
-                      <a href="#0">2</a>
-                    </li>
-                    <li className="d-block d-sm-block d-md-block d-lg-block">
-                      <a href="#0">3</a>
-                    </li>
-                    <li className="d-none d-sm-block d-md-block d-lg-block">
-                      <a href="#0">...</a>
-                    </li>
-                    <li className="d-none d-sm-block d-md-block d-lg-block">
-                      <a href="#0">6</a>
-                    </li>
-                    <li>
+                    {listPageNav.map((pageNav) => {
+                      return (
+                        <li
+                          onClick={() =>
+                            typeof pageNav === "number" &&
+                            setCurrentPage(pageNav)
+                          }
+                          className={
+                            pageNav === currentPage ? "third_pagger" : ""
+                          }
+                        >
+                          <a href="#0">{pageNav}</a>
+                        </li>
+                      );
+                    })}
+                    <li
+                      onClick={() =>
+                        setCurrentPage(Math.min(currentPage + 1, maxPage))
+                      }
+                    >
                       <a href="#0" className="next">
                         {" "}
                         <i className="flaticon-right-arrow" />{" "}

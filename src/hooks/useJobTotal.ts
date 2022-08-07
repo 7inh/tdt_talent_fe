@@ -2,22 +2,9 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { selectLogin } from "../features/login/loginSlice";
 
-const useJobList = (page: number) => {
+const useJobTotal = () => {
   const { token } = useSelector(selectLogin);
-  const [jobs, setJobs] = useState([
-    {
-      id: "",
-      title: "",
-      company_id: "",
-      company_name: "",
-      company_avatar: "",
-      employment_type: "",
-      created_at: "",
-      location: "",
-      position: "",
-      state: "",
-    },
-  ]);
+  const [total, setTotal] = useState({ count: 0 });
 
   useEffect(() => {
     const getJobs = async () => {
@@ -25,20 +12,20 @@ const useJobList = (page: number) => {
 
       var config = {
         method: "get",
-        url: "http://localhost:7000/api/job/get/" + page,
+        url: "http://localhost:7000/api/job/get_total",
         headers: {
           Authorization: `Bearer ${token}`,
         },
       };
 
       const response = await axios(config);
-      setJobs(response.data);
+      setTotal(response.data);
     };
 
     getJobs();
-  }, [page, token]);
+  }, [token]);
 
-  return jobs;
+  return total;
 };
 
-export default useJobList;
+export default useJobTotal;
