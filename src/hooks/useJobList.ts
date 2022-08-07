@@ -32,8 +32,6 @@ const useJobList = () => {
       };
 
       const response = await axios(config);
-      console.log("response", response.data);
-
       setJobs(response.data);
     };
 

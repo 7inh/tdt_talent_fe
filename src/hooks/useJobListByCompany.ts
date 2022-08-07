@@ -27,8 +27,6 @@ const useJobListByCompany = () => {
       };
 
       const response = await axios(config);
-      console.log(response)
-
       setJobs(response.data);
     };
 

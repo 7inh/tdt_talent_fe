@@ -17,8 +17,6 @@ const useJobDetail = (job_id: number) => {
     description: "",
   });
 
-  console.log("job_id", job_id);
-
   useEffect(() => {
     const getJobs = async () => {
       var axios = require("axios");

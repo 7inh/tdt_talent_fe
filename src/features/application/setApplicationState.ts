@@ -11,7 +11,6 @@ const setApplicationState = async (token: string | null, data: any) => {
   };
 
   const response = await axios(config);
-  console.log(response)
   return response.data;
 };
 

@@ -1,3 +1,4 @@
+import { current } from "@reduxjs/toolkit";
 import { useCallback, useRef, useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -77,6 +78,38 @@ export function JobItem({
     </div>
   );
 }
+
+function calculatePadding(
+  maxPage: number,
+  currentPage: number,
+  numberNav: number
+) {
+  const padding = [];
+
+  for (
+    let i = Math.max(2, currentPage - numberNav);
+    i <= Math.min(maxPage - 1, currentPage + numberNav);
+    i++
+  ) {
+    padding.push(i);
+  }
+
+  return padding;
+}
+
+const currentPage = 2;
+const numberNav = 3;
+const jobPerPage = 10;
+const totalJob = 60;
+const maxPage = Math.ceil(totalJob / jobPerPage);
+
+const listPageNav = [
+  1,
+  ...calculatePadding(maxPage, currentPage, numberNav),
+  maxPage,
+];
+
+console.log("listPageNav", listPageNav);
 
 export default function JobList() {
   const { token } = useSelector(selectLogin);
@@ -1666,6 +1699,7 @@ export default function JobList() {
                 <div id="list" className="tab-pane active">
                   <div className="row">{displayJobs()}</div>
                 </div>
+
                 <div className="blog_pagination_section jb_cover">
                   <ul>
                     <li>

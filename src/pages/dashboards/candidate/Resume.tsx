@@ -70,7 +70,6 @@ export default function Resume() {
     setBtnState(true);
   };
 
-  console.log("profile2", profile);
   return (
     <>
       <div className="col-lg-12 col-md-12 col-sm-12 col-12">
@@ -181,7 +180,8 @@ export default function Resume() {
                       <li>
                         <a
                           href={`http://localhost:7000/${profile.attach_resume_url}`}
-                          target="_blank" rel="noreferrer"
+                          target="_blank"
+                          rel="noreferrer"
                         >
                           <em>{profile.attach_resume}</em>
                         </a>

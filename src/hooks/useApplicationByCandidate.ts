@@ -30,7 +30,6 @@ const useApplicationListByCandidate = () => {
       };
 
       const response = await axios(config);
-      console.log(response);
 
       setApplications(response.data);
     };

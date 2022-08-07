@@ -9,8 +9,7 @@ export default function JobDetail() {
   const job = useJobDetail(parseInt(jobId));
 
   if (!job) throw new Error("page not found");
-  console.log(`jobjobjobjobjob`, job);
-
+  
   return (
     <div className="job_single_wrapper jb_cover">
       <div className="container">
@@ -170,13 +169,13 @@ export default function JobDetail() {
               </h2>
 
               <div className="jp_job_des jb_cover">
-                  {
-                    <div
-                      dangerouslySetInnerHTML={{
-                        __html: job.description,
-                      }}
-                    />
-                  }
+                {
+                  <div
+                    dangerouslySetInnerHTML={{
+                      __html: job.description,
+                    }}
+                  />
+                }
               </div>
             </div>
           </div>

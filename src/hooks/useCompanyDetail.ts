@@ -18,8 +18,6 @@ const useCompanyDetail = (account_id: number) => {
   const { token } = useSelector(selectLogin);
   const [account, setJob] = useState<Company>();
 
-  console.log("account_id", account_id);
-
   useEffect(() => {
     const getJobs = async () => {
       var axios = require("axios");

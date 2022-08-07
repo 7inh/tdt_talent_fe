@@ -3,7 +3,6 @@ import { useForm, FormProvider, Controller } from "react-hook-form";
 export default function JobFilter() {
   const methods = useForm();
   const { ref } = methods.register("cb");
-  console.log("==================", methods.getValues("cb"));
 
   return (
     <>

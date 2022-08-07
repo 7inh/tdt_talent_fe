@@ -17,7 +17,6 @@ const initialState: LoginState = {
     return checkExpiration(user) ? {} : user;
   })(),
   token: (() => {
-    console.log('localStorage.getItem("token")');
     const user = JSON.parse(localStorage.getItem("user") || "{}");
     return checkExpiration(user) ? "" : localStorage.getItem("token") || "";
   })(),
@@ -38,8 +37,6 @@ export const LoginSlice = createSlice({
       user && localStorage.setItem("user", JSON.stringify(user));
     },
     removeLogin: (state) => {
-      console.log("---------------+++++");
-      localStorage.setItem("token", "");
       localStorage.setItem("user", "{}");
       window.location.reload();
     },
