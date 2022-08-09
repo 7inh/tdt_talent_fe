@@ -6,6 +6,7 @@ const useJobDetail = (job_id: number) => {
   const { token } = useSelector(selectLogin);
   const [job, setJob] = useState({
     title: "",
+    company_id: "",
     company_name: "",
     employment_type: "",
     created_at: "",
@@ -15,6 +16,7 @@ const useJobDetail = (job_id: number) => {
     position: "",
     experience_requirement: "",
     description: "",
+    candidates: "",
   });
 
   useEffect(() => {

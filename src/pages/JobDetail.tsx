@@ -1,15 +1,39 @@
+import { useRef } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import applyJob from "../features/application/applyJob";
+import { selectLogin } from "../features/login/loginSlice";
 import useJobDetail from "../hooks/useJobDetail";
 
 export default function JobDetail() {
   let { id: jobId } = useParams();
+  const { token } = useSelector(selectLogin);
+  const closeModelRef = useRef<HTMLButtonElement>(null);
 
   if (!jobId) throw new Error("page not found");
 
   const job = useJobDetail(parseInt(jobId));
 
   if (!job) throw new Error("page not found");
-  
+
+  const submitApplication = async () => {
+    const payload = {
+      application: {
+        job_id: jobId,
+        company_id: job.company_id,
+      },
+    };
+
+    closeModelRef.current?.click();
+
+    try {
+      await applyJob(token, payload);
+      alert("success apply");
+    } catch (e) {
+      alert(e);
+    }
+  };
+
   return (
     <div className="job_single_wrapper jb_cover">
       <div className="container">
@@ -107,6 +131,17 @@ export default function JobDetail() {
                     </ul>
                   </div>
                 </div>
+                <div className="jp_listing_overview_list_main_wrapper jb_cover">
+                  <div className="jp_listing_list_icon">
+                    <i className="fa fa-briefcase" />
+                  </div>
+                  <div className="jp_listing_list_icon_cont_wrapper">
+                    <ul>
+                      <li>Current Applied:</li>
+                      <li>{job.candidates} candidates</li>
+                    </ul>
+                  </div>
+                </div>
                 <div className="header_btn search_btn news_btn overview_btn  jb_cover">
                   <a href="#0" data-toggle="modal" data-target="#myModal41">
                     apply now !
@@ -123,6 +158,7 @@ export default function JobDetail() {
                         type="button"
                         className="close"
                         data-dismiss="modal"
+                        ref={closeModelRef}
                       >
                         ×
                       </button>
@@ -131,24 +167,22 @@ export default function JobDetail() {
                           <div className="apply_job jb_cover">
                             <h1>apply for this job :</h1>
                             <div className="search_alert_box jb_cover">
-                              <div className="apply_job_form">
-                                <input
-                                  type="text"
-                                  name="name"
-                                  placeholder="full name"
-                                />
-                              </div>
+                              <p style={{ marginBottom: "10px" }}>
+                                Cover letter (optional)
+                              </p>
                               <div className="apply_job_form">
                                 <textarea
                                   className="form-control"
-                                  name="message"
-                                  placeholder="Message"
+                                  name="cover_letter"
+                                  placeholder="..."
                                   defaultValue={""}
                                 />
                               </div>
                             </div>
                             <div className="header_btn search_btn applt_pop_btn jb_cover">
-                              <a href="#0">apply now</a>
+                              <a href="#0" onClick={submitApplication}>
+                                apply now
+                              </a>
                             </div>
                           </div>
                         </div>

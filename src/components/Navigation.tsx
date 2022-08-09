@@ -88,7 +88,7 @@ export default function Navigation() {
         <div className="container-fluid">
           <div className="cp_logo_wrapper" style={{display: "flex", justifyContent: "center"}}>
             <Link to="/">
-              <img width={120} src="/images/tdt_talent_logo.jpeg" alt="logo" />
+              <img width={80} src="/images/tdt_talent_logo.jpeg" alt="logo" />
             </Link>
           </div>
           {/* mobile menu area start */}
