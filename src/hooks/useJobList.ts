@@ -14,6 +14,7 @@ const useJobList = (page: number) => {
       employment_type: "",
       created_at: "",
       location: "",
+      salary: "",
       position: "",
       state: "",
     },

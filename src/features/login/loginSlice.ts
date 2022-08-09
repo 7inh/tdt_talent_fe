@@ -38,6 +38,7 @@ export const LoginSlice = createSlice({
     },
     removeLogin: (state) => {
       localStorage.setItem("user", "{}");
+      localStorage.setItem("token", "");
       window.location.reload();
     },
   },
