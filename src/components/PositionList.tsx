@@ -32,7 +32,7 @@ export default function PositionList({refValue} : any) {
   return (
     <>
       <label>job position</label>
-      <select className="react-select" ref={refValue}>{displayPosition()}</select>
+      <select className="react-select" ref={refValue} onChange={() => alert("select")}>{displayPosition()}</select>
     </>
   );
 }

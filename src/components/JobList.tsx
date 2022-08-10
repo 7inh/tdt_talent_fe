@@ -184,7 +184,6 @@ export default function JobList() {
                   <option>short by</option>
                   <option>most recent </option>
                   <option>most popular</option>
-                  <option>top rated</option>
                 </select>
                 <div className="list-grid">
                   <ul className="nav nav-tabs">

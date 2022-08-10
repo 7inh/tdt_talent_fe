@@ -1,8 +1,26 @@
+import { useRef, useState } from "react";
 import { useForm, FormProvider, Controller } from "react-hook-form";
 
 export default function JobFilter() {
   const methods = useForm();
-  const { ref } = methods.register("cb");
+  const position = useRef<HTMLInputElement>(null);
+  const position2 = useRef<HTMLInputElement>(null);
+
+  const newFilter = {
+    position: [0],
+  };
+
+  const updateFilter = () => {
+    console.log(newFilter);
+  };
+
+  function removeItemOnce(arr: any, value: any) {
+    var index = arr.indexOf(value);
+    if (index > -1) {
+      arr.splice(index, 1);
+    }
+    return arr;
+  }
 
   return (
     <>
@@ -21,33 +39,62 @@ export default function JobFilter() {
           </div>
         </div>
       </div>
-      <FormProvider {...methods}>
-        <form>
-          <div className="job_filter_category_sidebar jb_cover">
-            <div className="job_filter_sidebar_heading jb_cover">
-              <h1>work experience</h1>
-            </div>
-            <div className="category_jobbox jb_cover">
-              <p className="job_field">
-                <input type="checkbox" id="c1" name="cb" />
-                <label htmlFor="c1">No Experience</label>
-              </p>
-              <p className="job_field">
-                <input type="checkbox" id="c2" name="cb" />
-                <label htmlFor="c2">0-2 years</label>
-              </p>
-              <p className="job_field">
-                <input type="checkbox" id="c3" name="cb" />
-                <label htmlFor="c3">3-5 years</label>
-              </p>
-              <p className="job_field">
-                <input type="checkbox" id="c4" name="cb" />
-                <label htmlFor="c4">more than 6 years</label>
-              </p>
-            </div>
-          </div>
-        </form>
-      </FormProvider>
+      <div className="job_filter_category_sidebar jb_cover">
+        <div className="job_filter_sidebar_heading jb_cover">
+          <h1>Position</h1>
+        </div>
+        <div className="category_jobbox jb_cover">
+          <p className="job_field">
+            <input
+              type="checkbox"
+              id="c1"
+              ref={position}
+              onChange={() => {
+                if (position.current?.checked) newFilter.position.push(1);
+                else removeItemOnce(newFilter.position, 1);
+                updateFilter()
+              }}
+            />
+            <label htmlFor="c1">AI-Engineer</label>
+          </p>
+          <p className="job_field">
+            <input
+              type="checkbox"
+              id="c2"
+              ref={position2}
+              onChange={() => {
+                if (position2.current?.checked) newFilter.position.push(2);
+                else removeItemOnce(newFilter.position, 2);
+                updateFilter()
+              }}
+            />
+            <label htmlFor="c2">Backend</label>
+          </p>
+        </div>
+      </div>
+      <div className="job_filter_category_sidebar jb_cover">
+        <div className="job_filter_sidebar_heading jb_cover">
+          <h1>work experience</h1>
+        </div>
+        <div className="category_jobbox jb_cover">
+          <p className="job_field">
+            <input type="checkbox" id="c1" name="cb" />
+            <label htmlFor="c1">No Experience</label>
+          </p>
+          <p className="job_field">
+            <input type="checkbox" id="c2" name="cb" />
+            <label htmlFor="c2">0-2 years</label>
+          </p>
+          <p className="job_field">
+            <input type="checkbox" id="c3" name="cb" />
+            <label htmlFor="c3">3-5 years</label>
+          </p>
+          <p className="job_field">
+            <input type="checkbox" id="c4" name="cb" />
+            <label htmlFor="c4">more than 6 years</label>
+          </p>
+        </div>
+      </div>
       <div className="job_filter_category_sidebar jb_cover">
         <div className="job_filter_sidebar_heading jb_cover">
           <h1>type of employment</h1>

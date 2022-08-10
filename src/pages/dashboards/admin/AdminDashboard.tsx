@@ -14,7 +14,7 @@ export default function AdminDashboard() {
             <div className="row">
               {/* section_heading start */}
               <div className="col-xl-9 col-lg-7 col-md-7 col-12 col-sm-12">
-                <h1>Candidates resume</h1>
+                <h1>Admin</h1>
               </div>
               <div className="col-xl-3 col-lg-5 col-md-5 col-12 col-sm-12">
                 <div className="sub_title_section">
