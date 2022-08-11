@@ -5,6 +5,8 @@ import { selectLogin } from "../../../features/login/loginSlice";
 import useApplicationListByCompanyV2 from "../../../hooks/useApplicationListByCompanyV2";
 
 function ApplicationItem(application: any) {
+  if (application.state === "rejected") return null;
+
   return (
     <div className="dashboard_latest_job_box jb_cover">
       <div className="dashboard_job_list" style={{ width: "470px" }}>
