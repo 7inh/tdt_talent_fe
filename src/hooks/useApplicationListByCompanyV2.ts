@@ -12,6 +12,7 @@ const useApplicationListV2 = () => {
         candidate_address: "-",
         state: "-",
         created_at: "-",
+        candidate_id: "",
         candidate_avatar: "",
         candidate_resume: "",
         candidate_resume_url: "",

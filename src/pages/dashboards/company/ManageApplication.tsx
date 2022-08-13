@@ -19,7 +19,7 @@ function ApplicationItem(application: any) {
           </div>
           <div style={{ margin: "0 10px 0 10px" }}>
             <a
-              href="#0"
+              href={"/candidate/" + application.candidate_id}
               style={{
                 fontSize: 20,
                 fontWeight: 500,
@@ -136,6 +136,7 @@ export default function ManageApplication() {
               <ApplicationItem
                 id={application.id}
                 handleSetApplicationState={handleSetApplicationState}
+                candidate_id={application.candidate_id}
                 candidate_avatar={application.candidate_avatar}
                 candidate_address={application.candidate_address}
                 candidate_resume_url={application.candidate_resume_url}
