@@ -36,6 +36,8 @@ export default function PostNewJob() {
     };
     try {
       await upsertJobAPI(token, payload);
+      alert("success");
+      window.location.reload();
     } catch (e) {
       alert(e);
     }
@@ -158,6 +160,7 @@ export default function PostNewJob() {
               (!btnEnable ? "disabled_btn" : "")
             }
             onClick={() => {
+              // alert("aaaa")
               btnEnable && handleCreateJob();
             }}
           >

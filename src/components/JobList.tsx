@@ -19,15 +19,17 @@ export function JobItem({
   handleApplyJob,
   company_avatar,
 }: any) {
-  if (state === "pending") return null;
-
   return (
     <div className="col-lg-12 col-md-12 col-sm-12 col-12">
       <div className="job_listing_left_fullwidth jb_cover">
         <div className="row">
           <div className="col-lg-9 col-md-9 col-sm-12 col-12">
             <div className="jp_job_post_side_img">
-              <img width={70} src={company_avatar || "images/lt4.png"} alt="post_img" />
+              <img
+                width={70}
+                src={company_avatar || "images/lt4.png"}
+                alt="post_img"
+              />
               <br /> <a href={`company/${company_id}`}>{company_name}</a>
             </div>
             <div className="jp_job_post_right_cont">
@@ -112,6 +114,8 @@ export default function JobList() {
   const total = useJobTotal();
   const jobs = useJobList(currentPage);
 
+  console.log("==============", jobs);
+
   const maxPage = Math.ceil(total["count"] / jobPerPage);
   const listPageNav = [
     1,
@@ -148,25 +152,23 @@ export default function JobList() {
 
   const displayJobs = useCallback(() => {
     return (
-      <>
-        {jobs.map((job: any, i: number) => {
-          return (
-            <JobItem
-              key={i}
-              id={job.id}
-              title={job.title}
-              employment_type={job.employment_type}
-              company_avatar={job.company_avatar}
-              state={job.state}
-              salary={job.salary}
-              location={job.location}
-              company_id={job.company_id}
-              company_name={job.company_name}
-              handleApplyJob={handleApplyJob}
-            />
-          );
-        })}
-      </>
+      <div data-testid="job_list">
+        {jobs.map((job) => (
+          <JobItem
+            key={`job_id_vertical_${job.id}`}
+            id={job.id}
+            title={job.title}
+            employment_type={job.employment_type}
+            company_avatar={job.company_avatar}
+            state={job.state}
+            salary={job.salary}
+            location={job.location}
+            company_id={job.company_id}
+            company_name={job.company_name}
+            handleApplyJob={handleApplyJob}
+          />
+        ))}
+      </div>
     );
   }, [jobs]);
 
@@ -206,7 +208,10 @@ export default function JobList() {
                   </ul>
                 </div>
                 <div className="showpro">
-                  <p>You're Watching {((currentPage - 1) * 3) + 1} to {currentPage * 3}</p>
+                  <p>
+                    You're Watching {(currentPage - 1) * 3 + 1} to{" "}
+                    {currentPage * 3}
+                  </p>
                 </div>
               </div>
               <div className="tab-content btc_shop_index_content_tabs_main jb_cover">
@@ -220,14 +225,21 @@ export default function JobList() {
                         location,
                         company_id,
                         company_name,
-                        company_avatar
+                        company_avatar,
                       }) => (
-                        <div className="col-lg-6 col-md-6 col-sm-12">
+                        <div
+                          className="col-lg-6 col-md-6 col-sm-12"
+                          key={`job_id_horizontal_${id}`}
+                        >
                           <div className="job_listing_left_fullwidth job_listing_grid_wrapper jb_cover">
                             <div className="row">
                               <div className="col-lg-12 col-md-12 col-sm-12 col-12">
                                 <div className="jp_job_post_side_img">
-                                  <img width={70} src={company_avatar || "images/lt1.png"} alt="post_img" />
+                                  <img
+                                    width={70}
+                                    src={company_avatar || "images/lt1.png"}
+                                    alt="post_img"
+                                  />
                                   <br />{" "}
                                   <span>
                                     <a href={`company/${company_id}`}>
@@ -302,6 +314,7 @@ export default function JobList() {
                     {listPageNav.map((pageNav) => {
                       return (
                         <li
+                          key={`page_${pageNav}`}
                           onClick={() =>
                             typeof pageNav === "number" &&
                             setCurrentPage(pageNav)

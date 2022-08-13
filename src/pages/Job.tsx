@@ -30,7 +30,7 @@ export default function Job() {
       </div>
       {/* top header wrapper end */}
       {/*job listing filter  wrapper start*/}
-      <JobList />
+      <JobList/>
     </>
   );
 }
